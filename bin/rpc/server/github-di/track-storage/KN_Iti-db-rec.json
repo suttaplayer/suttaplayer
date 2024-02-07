@@ -1,0 +1,547 @@
+[
+  {
+    "id": "iti1",
+    "title": "Itivuttaka 1",
+    "duration": 44.199184
+  },
+  {
+    "id": "iti2",
+    "title": "Itivuttaka 2",
+    "duration": 34.194286
+  },
+  {
+    "id": "iti3",
+    "title": "Itivuttaka 3",
+    "duration": 34.35102
+  },
+  {
+    "id": "iti4",
+    "title": "Itivuttaka 4",
+    "duration": 34.037551
+  },
+  {
+    "id": "iti5",
+    "title": "Itivuttaka 5",
+    "duration": 34.194286
+  },
+  {
+    "id": "iti6",
+    "title": "Itivuttaka 6",
+    "duration": 34.194286
+  },
+  {
+    "id": "iti7",
+    "title": "Itivuttaka 7",
+    "duration": 40.280816
+  },
+  {
+    "id": "iti8",
+    "title": "Itivuttaka 8",
+    "duration": 49.214694
+  },
+  {
+    "id": "iti9",
+    "title": "Itivuttaka 9",
+    "duration": 42.34449
+  },
+  {
+    "id": "iti10",
+    "title": "Itivuttaka 10—13",
+    "duration": 36.257959
+  },
+  {
+    "id": "iti14",
+    "title": "Itivuttaka 14",
+    "duration": 43.206531
+  },
+  {
+    "id": "iti15",
+    "title": "Itivuttaka 15",
+    "duration": 48.74449
+  },
+  {
+    "id": "iti16",
+    "title": "Itivuttaka 16",
+    "duration": 42.893061
+  },
+  {
+    "id": "iti17",
+    "title": "Itivuttaka 17",
+    "duration": 43.128163
+  },
+  {
+    "id": "iti18",
+    "title": "Itivuttaka 18",
+    "duration": 59.95102
+  },
+  {
+    "id": "iti19",
+    "title": "Itivuttaka 19",
+    "duration": 57.547755
+  },
+  {
+    "id": "iti20",
+    "title": "Itivuttaka 20",
+    "duration": 63.503673
+  },
+  {
+    "id": "iti21",
+    "title": "Itivuttaka 21",
+    "duration": 59.376327
+  },
+  {
+    "id": "iti22",
+    "title": "Itivuttaka 22",
+    "duration": 117.524898
+  },
+  {
+    "id": "iti23",
+    "title": "Itivuttaka 23",
+    "duration": 51.121633
+  },
+  {
+    "id": "iti24",
+    "title": "Itivuttaka 24",
+    "duration": 66.690612
+  },
+  {
+    "id": "iti25",
+    "title": "Itivuttaka 25",
+    "duration": 30.223673
+  },
+  {
+    "id": "iti26",
+    "title": "Itivuttaka 26",
+    "duration": 78.602449
+  },
+  {
+    "id": "iti27",
+    "title": "Itivuttaka 27",
+    "duration": 157.753469
+  },
+  {
+    "id": "iti28",
+    "title": "Itivuttaka 28",
+    "duration": 65.619592
+  },
+  {
+    "id": "iti29",
+    "title": "Itivuttaka 29",
+    "duration": 64.626939
+  },
+  {
+    "id": "iti30",
+    "title": "Itivuttaka 30",
+    "duration": 55.379592
+  },
+  {
+    "id": "iti31",
+    "title": "Itivuttaka 31",
+    "duration": 55.431837
+  },
+  {
+    "id": "iti32",
+    "title": "Itivuttaka 32",
+    "duration": 33.567347
+  },
+  {
+    "id": "iti33",
+    "title": "Itivuttaka 33",
+    "duration": 35.134694
+  },
+  {
+    "id": "iti34",
+    "title": "Itivuttaka 34",
+    "duration": 60.525714
+  },
+  {
+    "id": "iti35",
+    "title": "Itivuttaka 35",
+    "duration": 53.080816
+  },
+  {
+    "id": "iti36",
+    "title": "Itivuttaka 36",
+    "duration": 53.786122
+  },
+  {
+    "id": "iti37",
+    "title": "Itivuttaka 37",
+    "duration": 56.293878
+  },
+  {
+    "id": "iti38",
+    "title": "Itivuttaka 38",
+    "duration": 128.914286
+  },
+  {
+    "id": "iti39",
+    "title": "Itivuttaka 39",
+    "duration": 58.174694
+  },
+  {
+    "id": "iti40",
+    "title": "Itivuttaka 40",
+    "duration": 51.2
+  },
+  {
+    "id": "iti41",
+    "title": "Itivuttaka 41",
+    "duration": 68.310204
+  },
+  {
+    "id": "iti42",
+    "title": "Itivuttaka 42",
+    "duration": 66.377143
+  },
+  {
+    "id": "iti43",
+    "title": "Itivuttaka 43",
+    "duration": 64.261224
+  },
+  {
+    "id": "iti44",
+    "title": "Itivuttaka 44",
+    "duration": 123.533061
+  },
+  {
+    "id": "iti45",
+    "title": "Itivuttaka 45",
+    "duration": 63.111837
+  },
+  {
+    "id": "iti46",
+    "title": "Itivuttaka 46",
+    "duration": 71.810612
+  },
+  {
+    "id": "iti47",
+    "title": "Itivuttaka 47",
+    "duration": 83.879184
+  },
+  {
+    "id": "iti48",
+    "title": "Itivuttaka 48",
+    "duration": 69.877551
+  },
+  {
+    "id": "iti49",
+    "title": "Itivuttaka 49",
+    "duration": 109.244082
+  },
+  {
+    "id": "iti50",
+    "title": "Itivuttaka 50",
+    "duration": 34.220408
+  },
+  {
+    "id": "iti51",
+    "title": "Itivuttaka 51",
+    "duration": 49.449796
+  },
+  {
+    "id": "iti52",
+    "title": "Itivuttaka 52",
+    "duration": 39.653878
+  },
+  {
+    "id": "iti53",
+    "title": "Itivuttaka 53",
+    "duration": 68.675918
+  },
+  {
+    "id": "iti54",
+    "title": "Itivuttaka 54",
+    "duration": 39.758367
+  },
+  {
+    "id": "iti55",
+    "title": "Itivuttaka 55",
+    "duration": 49.136327
+  },
+  {
+    "id": "iti56",
+    "title": "Itivuttaka 56",
+    "duration": 40.150204
+  },
+  {
+    "id": "iti57",
+    "title": "Itivuttaka 57",
+    "duration": 38.138776
+  },
+  {
+    "id": "iti58",
+    "title": "Itivuttaka 58",
+    "duration": 44.538776
+  },
+  {
+    "id": "iti59",
+    "title": "Itivuttaka 59",
+    "duration": 46.628571
+  },
+  {
+    "id": "iti60",
+    "title": "Itivuttaka 60",
+    "duration": 48.143673
+  },
+  {
+    "id": "iti61",
+    "title": "Itivuttaka 61",
+    "duration": 43.102041
+  },
+  {
+    "id": "iti62",
+    "title": "Itivuttaka 62",
+    "duration": 55.196735
+  },
+  {
+    "id": "iti63",
+    "title": "Itivuttaka 63",
+    "duration": 52.558367
+  },
+  {
+    "id": "iti64",
+    "title": "Itivuttaka 64",
+    "duration": 40.124082
+  },
+  {
+    "id": "iti65",
+    "title": "Itivuttaka 65",
+    "duration": 39.862857
+  },
+  {
+    "id": "iti66",
+    "title": "Itivuttaka 66",
+    "duration": 33.07102
+  },
+  {
+    "id": "iti67",
+    "title": "Itivuttaka 67",
+    "duration": 31.582041
+  },
+  {
+    "id": "iti68",
+    "title": "Itivuttaka 68",
+    "duration": 55.562449
+  },
+  {
+    "id": "iti69",
+    "title": "Itivuttaka 69",
+    "duration": 72.359184
+  },
+  {
+    "id": "iti70",
+    "title": "Itivuttaka 70",
+    "duration": 99.160816
+  },
+  {
+    "id": "iti71",
+    "title": "Itivuttaka 71",
+    "duration": 94.119184
+  },
+  {
+    "id": "iti72",
+    "title": "Itivuttaka 72",
+    "duration": 53.315918
+  },
+  {
+    "id": "iti73",
+    "title": "Itivuttaka 73",
+    "duration": 52.636735
+  },
+  {
+    "id": "iti74",
+    "title": "Itivuttaka 74",
+    "duration": 197.355102
+  },
+  {
+    "id": "iti75",
+    "title": "Itivuttaka 75",
+    "duration": 154.88
+  },
+  {
+    "id": "iti76",
+    "title": "Itivuttaka 76",
+    "duration": 133.537959
+  },
+  {
+    "id": "iti77",
+    "title": "Itivuttaka 77",
+    "duration": 33.933061
+  },
+  {
+    "id": "iti78",
+    "title": "Itivuttaka 78",
+    "duration": 93.857959
+  },
+  {
+    "id": "iti79",
+    "title": "Itivuttaka 79",
+    "duration": 95.451429
+  },
+  {
+    "id": "iti80",
+    "title": "Itivuttaka 80",
+    "duration": 52.715102
+  },
+  {
+    "id": "iti81",
+    "title": "Itivuttaka 81",
+    "duration": 154.932245
+  },
+  {
+    "id": "iti82",
+    "title": "Itivuttaka 82",
+    "duration": 128.287347
+  },
+  {
+    "id": "iti83",
+    "title": "Itivuttaka 83",
+    "duration": 172.669388
+  },
+  {
+    "id": "iti84",
+    "title": "Itivuttaka 84",
+    "duration": 198.556735
+  },
+  {
+    "id": "iti85",
+    "title": "Itivuttaka 85",
+    "duration": 68.91102
+  },
+  {
+    "id": "iti86",
+    "title": "Itivuttaka 86",
+    "duration": 54.622041
+  },
+  {
+    "id": "iti87",
+    "title": "Itivuttaka 87",
+    "duration": 119.719184
+  },
+  {
+    "id": "iti88",
+    "title": "Itivuttaka 88",
+    "duration": 138.605714
+  },
+  {
+    "id": "iti89",
+    "title": "Itivuttaka 89",
+    "duration": 125.962449
+  },
+  {
+    "id": "iti90",
+    "title": "Itivuttaka 90",
+    "duration": 169.665306
+  },
+  {
+    "id": "iti91",
+    "title": "Itivuttaka 91",
+    "duration": 110.471837
+  },
+  {
+    "id": "iti92",
+    "title": "Itivuttaka 92",
+    "duration": 104.097959
+  },
+  {
+    "id": "iti93",
+    "title": "Itivuttaka 93",
+    "duration": 100.101224
+  },
+  {
+    "id": "iti94",
+    "title": "Itivuttaka 94",
+    "duration": 38.19102
+  },
+  {
+    "id": "iti95",
+    "title": "Itivuttaka 95",
+    "duration": 76.173061
+  },
+  {
+    "id": "iti96",
+    "title": "Itivuttaka 96",
+    "duration": 65.462857
+  },
+  {
+    "id": "iti97",
+    "title": "Itivuttaka 97",
+    "duration": 137.822041
+  },
+  {
+    "id": "iti98",
+    "title": "Itivuttaka 98",
+    "duration": 70.138776
+  },
+  {
+    "id": "iti99",
+    "title": "Itivuttaka 99",
+    "duration": 248.32
+  },
+  {
+    "id": "iti100",
+    "title": "Itivuttaka 100",
+    "duration": 94.563265
+  },
+  {
+    "id": "iti101",
+    "title": "Itivuttaka 101",
+    "duration": 74.292245
+  },
+  {
+    "id": "iti102",
+    "title": "Itivuttaka 102",
+    "duration": 77.844898
+  },
+  {
+    "id": "iti103",
+    "title": "Itivuttaka 103",
+    "duration": 126.92898
+  },
+  {
+    "id": "iti104",
+    "title": "Itivuttaka 104",
+    "duration": 125.962449
+  },
+  {
+    "id": "iti105",
+    "title": "Itivuttaka 105",
+    "duration": 69.825306
+  },
+  {
+    "id": "iti106",
+    "title": "Itivuttaka 106",
+    "duration": 89.364898
+  },
+  {
+    "id": "iti107",
+    "title": "Itivuttaka 107",
+    "duration": 84.062041
+  },
+  {
+    "id": "iti108",
+    "title": "Itivuttaka 108",
+    "duration": 68.675918
+  },
+  {
+    "id": "iti109",
+    "title": "Itivuttaka 109",
+    "duration": 108.90449
+  },
+  {
+    "id": "iti110",
+    "title": "Itivuttaka 110",
+    "duration": 148.244898
+  },
+  {
+    "id": "iti111",
+    "title": "Itivuttaka 111",
+    "duration": 155.010612
+  },
+  {
+    "id": "iti112",
+    "title": "Itivuttaka 112",
+    "duration": 216.267755
+  }
+]

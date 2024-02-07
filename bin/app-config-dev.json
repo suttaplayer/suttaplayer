@@ -1,0 +1,30 @@
+{
+    "isProd": false,
+    "envType": "dev",
+    "hosts": ["localhost", "192.168.1.91",  "suttaplayer.github.io"],
+    "appRoots": ["", "", ""],
+    "precacheAudioRouteServiceWorker": {
+        "scriptURL": "./precache-audio-route-service-worker.js",
+        "type": "classic"
+    },
+    "albumStoreWorker": {
+        "scriptURL": "./bin/rpc/server/album-store-worker-server.js",
+        "type": "module"
+    },
+    "offlineAudioManagerWorker": {
+        "scriptURL": "./bin/rpc/server/offline-audio-mgr-worker-server.js",
+        "type": "module"
+    },
+    "offlineAudioWorker_n": {
+        "scriptURL": "./bin/rpc/server/offline-audio-worker-server.js",
+        "type": "module"
+    },
+    "searchTextManagerWorker": {
+        "scriptURL": "./bin/rpc/server/search-text-mgr-worker-server.js",
+        "type": "module"
+    },
+    "searchTextWorker_n": {
+        "scriptURL": "./bin/rpc/server/search-text-worker-server.js",
+        "type": "module"
+    }
+}

@@ -1,0 +1,17 @@
+<tr id="$ROW.trackCatPgTr" data-trackref="$TRACKREF" data-tr-type="body" data-row="$ROW" class="border-b dark:border-gray-700">
+    <td class="w-2 p-2">
+        <div class="flex items-center">
+            <input id="$ROW.trackCatPgInput" type="checkbox" data-row="$ROW" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800" />
+            <label for="$ROW.trackCatPgInput" class="sr-only">checkbox</label>
+        </div>
+    </td>
+    <td class="px-3 py-3">$TITLE</td>
+    <td class="px-3 py-3">
+        <div class="flex items-center">
+            <span data-cache-flag-trackref="$TRACKREF" class="flex h-3 w-3 rounded-full $CACHE_STATUS_COLOR"></span>
+            &nbsp;<a href="#$TRACKREF"
+                class="spa-nav font-medium text-blue-600 underline hover:no-underline dark:text-blue-500">$TRACKREF</a>
+        </div>
+    </td>
+    <td class="px-3 py-3">$DURmin</td>
+</tr>

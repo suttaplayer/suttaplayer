@@ -1,0 +1,407 @@
+[
+  {
+    "id": "ud1_1",
+    "title": "Awakening (1) (Bodhi Sutta)",
+    "duration": 116.741224
+  },
+  {
+    "id": "ud1_2",
+    "title": "Awakening (2) (Bodhi Sutta)",
+    "duration": 118.047347
+  },
+  {
+    "id": "ud1_3",
+    "title": "Awakening (3) (Bodhi Sutta)",
+    "duration": 184.398367
+  },
+  {
+    "id": "ud1_4",
+    "title": "Overbearing (Huhuṅka Sutta)",
+    "duration": 75.964082
+  },
+  {
+    "id": "ud1_5",
+    "title": "Brahmans (Brāhmaṇa Sutta)",
+    "duration": 72.150204
+  },
+  {
+    "id": "ud1_6",
+    "title": "Mahā Kassapa (Kassapa Sutta)",
+    "duration": 85.55102
+  },
+  {
+    "id": "ud1_7",
+    "title": "Aja (Aja Sutta)",
+    "duration": 63.686531
+  },
+  {
+    "id": "ud1_8",
+    "title": "Saṅgāmaji (Saṅgāmaji Sutta)",
+    "duration": 123.846531
+  },
+  {
+    "id": "ud1_9",
+    "title": "Ascetics (Jaṭila Sutta)",
+    "duration": 71.183673
+  },
+  {
+    "id": "ud1_10",
+    "title": "Bāhiya (Bāhiya Sutta)",
+    "duration": 393.456327
+  },
+  {
+    "id": "ud2_1",
+    "title": "Muccalinda (Muccalinda Sutta)",
+    "duration": 110.863673
+  },
+  {
+    "id": "ud2_2",
+    "title": "Kings (Rājā Sutta)",
+    "duration": 125.387755
+  },
+  {
+    "id": "ud2_3",
+    "title": "The Stick (Daṇḍa Sutta)",
+    "duration": 59.167347
+  },
+  {
+    "id": "ud2_4",
+    "title": "Veneration (Sakkāra Sutta)",
+    "duration": 154.253061
+  },
+  {
+    "id": "ud2_5",
+    "title": "The Lay Follower (Upāsaka Sutta)",
+    "duration": 64.600816
+  },
+  {
+    "id": "ud2_6",
+    "title": "The Pregnant Woman (Gabbhinin Sutta)",
+    "duration": 128.156735
+  },
+  {
+    "id": "ud2_7",
+    "title": "The Only Son (Ekaputta Sutta)",
+    "duration": 79.36
+  },
+  {
+    "id": "ud2_8",
+    "title": "Suppavāsā (Suppavāsā Sutta)",
+    "duration": 523.859592
+  },
+  {
+    "id": "ud2_9",
+    "title": "Visākhā (Visākhā Sutta)",
+    "duration": 64.182857
+  },
+  {
+    "id": "ud2_10",
+    "title": "Bhaddiya Kāḷigodha (Kāḷigodha Sutta)",
+    "duration": 234.527347
+  },
+  {
+    "id": "ud3_1",
+    "title": "Kamma (Kamma Sutta)",
+    "duration": 59.924898
+  },
+  {
+    "id": "ud3_2",
+    "title": "Nanda (Nanda Sutta)",
+    "duration": 445.022041
+  },
+  {
+    "id": "ud3_3",
+    "title": "Yasoja (Yasoja Sutta)",
+    "duration": 456.777143
+  },
+  {
+    "id": "ud3_4",
+    "title": "Sāriputta (Sāriputta Sutta)",
+    "duration": 47.856327
+  },
+  {
+    "id": "ud3_5",
+    "title": "Mahā Moggallāna (Kolita Sutta)",
+    "duration": 55.24898
+  },
+  {
+    "id": "ud3_6",
+    "title": "Pilinda (Pilinda Sutta)",
+    "duration": 131.657143
+  },
+  {
+    "id": "ud3_7",
+    "title": "Mahā Kassapa (Kassapa Sutta)",
+    "duration": 190.328163
+  },
+  {
+    "id": "ud3_8",
+    "title": "Alms (Piṇḍa Sutta)",
+    "duration": 149.707755
+  },
+  {
+    "id": "ud3_9",
+    "title": "Crafts (Sippa Sutta)",
+    "duration": 138.318367
+  },
+  {
+    "id": "ud3_10",
+    "title": "Surveying The World (Loka Sutta)",
+    "duration": 152.894694
+  },
+  {
+    "id": "ud4_1",
+    "title": "Meghiya (Meghiya Sutta)",
+    "duration": 579.082449
+  },
+  {
+    "id": "ud4_2",
+    "title": "High-Strung (Uddhata Sutta)",
+    "duration": 77.635918
+  },
+  {
+    "id": "ud4_3",
+    "title": "The Cowherd (Gopāla Sutta)",
+    "duration": 163.578776
+  },
+  {
+    "id": "ud4_4",
+    "title": "Moonlit (Juñha Sutta)",
+    "duration": 222.197551
+  },
+  {
+    "id": "ud4_5",
+    "title": "The Bull Elephant (Nāga Sutta)",
+    "duration": 270.367347
+  },
+  {
+    "id": "ud4_6",
+    "title": "Piṇḍola (Piṇḍola Sutta)",
+    "duration": 80.509388
+  },
+  {
+    "id": "ud4_7",
+    "title": "Sāriputta (Sāriputta Sutta)",
+    "duration": 57.103673
+  },
+  {
+    "id": "ud4_8",
+    "title": "Sundarī (Sundarī Sutta)",
+    "duration": 428.930612
+  },
+  {
+    "id": "ud4_9",
+    "title": "Upasena Vaṅgantaputta (Upasena Vaṅgantaputta Sutta )",
+    "duration": 93.387755
+  },
+  {
+    "id": "ud4_10",
+    "title": "Sāriputta (Sāriputta Sutta)",
+    "duration": 50.337959
+  },
+  {
+    "id": "ud5_1",
+    "title": "The King (Rājan Sutta)",
+    "duration": 103.392653
+  },
+  {
+    "id": "ud5_2",
+    "title": "Short-Lived (Appāyuka Sutta)",
+    "duration": 79.804082
+  },
+  {
+    "id": "ud5_3",
+    "title": "The Leper (Kuṭṭhi Sutta)",
+    "duration": 371.461224
+  },
+  {
+    "id": "ud5_4",
+    "title": "Boys (Kumāra Sutta)",
+    "duration": 69.720816
+  },
+  {
+    "id": "ud5_5",
+    "title": "Uposatha (Uposatha Sutta)",
+    "duration": 868.728163
+  },
+  {
+    "id": "ud5_6",
+    "title": "Soṇa (Soṇa Sutta)",
+    "duration": 588.721633
+  },
+  {
+    "id": "ud5_7",
+    "title": "Revata (Revata Sutta)",
+    "duration": 60.682449
+  },
+  {
+    "id": "ud5_8",
+    "title": "Ānanda (Ānanda Sutta)",
+    "duration": 115.800816
+  },
+  {
+    "id": "ud5_9",
+    "title": "Jeering (Sadhāyamāna Sutta)",
+    "duration": 39.732245
+  },
+  {
+    "id": "ud5_10",
+    "title": "Cūḷa Panthaka (Panthaka Sutta)",
+    "duration": 58.514286
+  },
+  {
+    "id": "ud6_1",
+    "title": "Relinquishment Of The Life Force (Āyusama-Osajjana Sutta)",
+    "duration": 520.933878
+  },
+  {
+    "id": "ud6_2",
+    "title": "Seclusion (Paṭisalla Sutta)",
+    "duration": 341.995102
+  },
+  {
+    "id": "ud6_3",
+    "title": "It Was (Ahu Sutta)",
+    "duration": 50.181224
+  },
+  {
+    "id": "ud6_4",
+    "title": "Sectarians (1) (Tittha Sutta)",
+    "duration": 402.599184
+  },
+  {
+    "id": "ud6_5",
+    "title": "Sectarians (2) (Tittha Sutta)",
+    "duration": 200.542041
+  },
+  {
+    "id": "ud6_6",
+    "title": "Sectarians (3) (Tittha Sutta)",
+    "duration": 226.507755
+  },
+  {
+    "id": "ud6_7",
+    "title": "Subhūti (Subhūti Sutta)",
+    "duration": 55.719184
+  },
+  {
+    "id": "ud6_8",
+    "title": "The Courtesan (Gaṇika Sutta)",
+    "duration": 133.799184
+  },
+  {
+    "id": "ud6_9",
+    "title": "Rushing (Upāti Sutta)",
+    "duration": 63.007347
+  },
+  {
+    "id": "ud6_10",
+    "title": "They Appear (Uppajjanti Sutta)",
+    "duration": 159.503673
+  },
+  {
+    "id": "ud7_1",
+    "title": "Bhaddiya (1) (Bhaddiya Sutta)",
+    "duration": 74.24
+  },
+  {
+    "id": "ud7_2",
+    "title": "Bhaddiya (2) (Bhaddiya Sutta)",
+    "duration": 66.272653
+  },
+  {
+    "id": "ud7_3",
+    "title": "Attached To Sensual Pleasures (1) (Kāmesu Satta Sutta)",
+    "duration": 84.27102
+  },
+  {
+    "id": "ud7_4",
+    "title": "Attached To Sensual Pleasures (2) (Kāmesu Satta Sutta)",
+    "duration": 71.418776
+  },
+  {
+    "id": "ud7_5",
+    "title": "The Dwarf (Lakuṇṭha Sutta)",
+    "duration": 90.200816
+  },
+  {
+    "id": "ud7_6",
+    "title": "The Ending Of Craving (Taṇhākhaya Sutta)",
+    "duration": 62.014694
+  },
+  {
+    "id": "ud7_7",
+    "title": "The Ending Of Objectification (Papañcakhaya Sutta)",
+    "duration": 48.64
+  },
+  {
+    "id": "ud7_8",
+    "title": "Kaccāna (Kaccāna Sutta)",
+    "duration": 64.653061
+  },
+  {
+    "id": "ud7_9",
+    "title": "The Well (Udapāna Sutta)",
+    "duration": 184.816327
+  },
+  {
+    "id": "ud7_10",
+    "title": "King Udena (Udena Sutta)",
+    "duration": 92.577959
+  },
+  {
+    "id": "ud8_1",
+    "title": "Unbinding (1) (Nibbāna Sutta)",
+    "duration": 76.225306
+  },
+  {
+    "id": "ud8_2",
+    "title": "Unbinding (2) (Nibbāna Sutta)",
+    "duration": 47.438367
+  },
+  {
+    "id": "ud8_3",
+    "title": "Unbinding (3) (Nibbāna Sutta)",
+    "duration": 57.469388
+  },
+  {
+    "id": "ud8_4",
+    "title": "Unbinding (4) (Nibbāna Sutta)",
+    "duration": 64.679184
+  },
+  {
+    "id": "ud8_5",
+    "title": "Cunda (Cunda Sutta)",
+    "duration": 610.977959
+  },
+  {
+    "id": "ud8_6",
+    "title": "Pāṭali Village (Pāṭaligāma Sutta)",
+    "duration": 713.012245
+  },
+  {
+    "id": "ud8_7",
+    "title": "A Fork In The Path (Dvidhapatha Sutta)",
+    "duration": 120.894694
+  },
+  {
+    "id": "ud8_8",
+    "title": "Visākhā (Visākhā Sutta)",
+    "duration": 179.121633
+  },
+  {
+    "id": "ud8_9",
+    "title": "Dabba (1) (Dabba Sutta)",
+    "duration": 105.691429
+  },
+  {
+    "id": "ud8_10",
+    "title": "Dabba (2) (Dabba Sutta)",
+    "duration": 88.346122
+  },
+  {
+    "id": "apptwo",
+    "title": "Non-Udāna Exclamations",
+    "duration": 1216.835918
+  }
+]

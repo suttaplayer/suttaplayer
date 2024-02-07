@@ -1,0 +1,59 @@
+{
+    "albumTable": [
+        {
+            "name": "Aṅguttara Nikāya | The Numerical Collection",
+            "id": "AN",
+            "size": 392
+        },
+        {
+            "name": "Dhammapada",
+            "id": "KN/Dhp",
+            "size": 26
+        },
+        {
+            "name": "Dīgha Nikāya | The Long Collection",
+            "id": "DN",
+            "size": 21
+        },
+        {
+            "name": "Itivuttaka | This was said by the Buddha",
+            "id": "KN/Iti",
+            "size": 109
+        },
+        {
+            "name": "Khuddakapāṭha | Short Passages",
+            "id": "KN/Khp",
+            "size": 9
+        }, 
+        {
+            "name": "Majjhima Nikāya | The Middle Collection",
+            "id": "MN",
+            "size": 101
+        },
+        {
+            "name": "Saṁyutta Nikāya | The Connected Collection",
+            "id": "SN",
+            "size": 402
+        },
+        {
+            "name": "Sutta Nipāta | The Discourse Group",
+            "id": "KN/StNp",
+            "size": 72
+        },
+        {
+            "name": "Theragāthā | Poems of the Elder Monks",
+            "id": "KN/Thag",
+            "size": 97
+        },
+        {
+            "name": "Therīgāthā | Poems of the Elder Nuns",
+            "id": "KN/Thig",
+            "size": 34
+        },
+        {
+            "name": "Udāna | Exclamations",
+            "id": "KN/Ud",
+            "size": 81
+        }
+    ]
+}

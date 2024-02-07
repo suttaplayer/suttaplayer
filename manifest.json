@@ -1,0 +1,31 @@
+{
+    "id": "/#",
+    "name": "Sutta Player",
+    "short_name": "SuttaPlayer",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "A media player of audio and text suttas from the Pāli Canon.",
+    "icons": [
+      {
+        "src": "./img/suttaplayer.svg",
+        "type": "image/svg+xml",
+        "sizes": "any"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "./img/screenshot-540x720.png",
+        "type": "image/png",
+        "sizes": "540x720",
+        "form_factor": "narrow"
+      },
+      {
+        "src": "./img/screenshot-720x540.png",
+        "type": "image/jpg",
+        "sizes": "720x540",
+        "form_factor": "wide"
+      }
+    ]
+  }
+  

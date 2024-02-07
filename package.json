@@ -1,0 +1,42 @@
+{
+  "name": "suttaplayer",
+  "version": "2.1.0",
+  "description": "Sutta player is a combined text/audio media player with the purpose of helping you lend ear, visit and grow close to the true Dhamma.",
+  "main": "bin/app.js",
+  "bin": {
+    "suttaplayer": "bin/app.js"
+  },
+  "scripts": {
+    "test": "sudo esbuild --serve=443 --servedir=./ --keyfile=.srv/server.key --certfile=.srv/server.crt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suttaplayer/suttaplayer.git"
+  },
+  "keywords": [
+    "sutta",
+    "player",
+    "Ṭhānissaro Bhikkhu",
+    "dhammatalks.org",
+    "Aṅguttara Nikāya",
+    "Dhammapada",
+    "Dīgha Nikāya",
+    "Itivuttaka",
+    "Khuddakapāṭha",
+    "Majjhima Nikāya",
+    "Saṁyutta Nikāya",
+    "Sutta Nipāta",
+    "Theragāthā",
+    "Therīgāthā",
+    "Udāna"
+  ],
+  "author": "ashinw",
+  "license": "SEE LICENSE IN LICENSE_CONTENT_ṭhānissaro_bhikkhu.md",
+  "bugs": {
+    "url": "https://github.com/suttaplayer/suttaplayer/issues"
+  },
+  "homepage": "https://suttaplayer.github.io",
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
+}

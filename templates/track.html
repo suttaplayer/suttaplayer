@@ -1,0 +1,111 @@
+<section id="trackPageSection" class="bg-gray-50 dark:bg-gray-900 sm:p-5">
+  <div class="mx-auto max-w-screen-xl lg:px-12">
+    <!-- Start coding here -->
+    <div class="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
+      <div class="mx-2">
+        <!-- Breadcrumb bar -->
+        <nav class="flex pb-2 dark:text-white" aria-label="Breadcrumb">
+          <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center" aria-current="page">
+              <svg class="mr-2.5 h-5 w-5 dark:text-gray-400" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.44152 5.00024C5.00819 5.00024 4.63559 5.27423 4.50847 5.67256C4.12006 6.88964 3.54128 8.7533 3.03552 10.582C3.77685 10.2098 4.61396 10.0002 5.5 10.0002C8.08018 10.0002 10.2454 11.7769 10.839 14.1737C11.1739 14.0666 11.5598 14.0002 12 14.0002C12.4402 14.0002 12.8261 14.0666 13.161 14.1737C13.7546 11.7769 15.9198 10.0002 18.5 10.0002C19.386 10.0002 20.2231 10.2098 20.9645 10.582C20.4587 8.7533 19.8799 6.88964 19.4915 5.67256C19.3644 5.27423 18.9918 5.00024 18.5585 5.00024H17C16.4477 5.00024 16 4.55253 16 4.00024C16 3.44796 16.4477 3.00024 17 3.00024H18.5585C19.8469 3.00024 21.0005 3.82262 21.3969 5.06451C21.8162 6.3784 22.4602 8.45388 23.0003 10.4437C23.2702 11.438 23.517 12.4208 23.6969 13.2818C23.8041 13.7942 23.8932 14.2893 23.9465 14.7302C23.9818 14.9818 24 15.2389 24 15.5002C24 18.5378 21.5376 21.0002 18.5 21.0002C15.7742 21.0002 13.5116 19.0174 13.0758 16.4154C12.8172 16.1044 12.3886 16.0002 12 16.0002C11.6114 16.0002 11.1828 16.1044 10.9242 16.4154C10.4884 19.0174 8.22578 21.0002 5.5 21.0002C2.46243 21.0002 0 18.5378 0 15.5002C0 15.2389 0.0182295 14.9818 0.0534864 14.7302C0.106769 14.2893 0.195948 13.7942 0.303069 13.2818C0.483034 12.4208 0.729752 11.438 0.99968 10.4437C1.53984 8.45388 2.18384 6.3784 2.60314 5.06451C2.99947 3.82262 4.15313 3.00024 5.44152 3.00024H7C7.55228 3.00024 8 3.44796 8 4.00024C8 4.55253 7.55228 5.00024 7 5.00024H5.44152ZM2.00992 15.5002C2.00992 17.4278 3.57248 18.9903 5.5 18.9903C7.42752 18.9903 8.99008 17.4278 8.99008 15.5002C8.99008 13.5727 7.42752 12.0102 5.5 12.0102C3.57248 12.0102 2.00992 13.5727 2.00992 15.5002ZM15.0099 15.5002C15.0099 17.4278 16.5725 18.9903 18.5 18.9903C20.4275 18.9903 21.9901 17.4278 21.9901 15.5002C21.9901 13.5727 20.4275 12.0102 18.5 12.0102C16.5725 12.0102 15.0099 13.5727 15.0099 15.5002Z"/>
+                </svg>
+              &nbsp;<a id="trackRefTrackPgA" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">[TrackRef]</a>
+            </li>
+          </ol>
+        </nav>
+
+        <div class="flex flex-col justify-between space-y-3 py-2 md:flex-row md:space-x-4 md:space-y-0">
+          <pre id="textTrackPgPre" class="line-numbers linkable-line-numbers language-trackmd dark:invert"><code id="textTrackPgCode"></code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-dial-init class="group fixed top-12 end-4">
+    <button id="menuTrackPgBtn" type="button" data-dial-toggle="menuTrackPgDiv" data-dial-trigger="hover" aria-controls="menuTrackPgDiv" aria-expanded="false" class="flex items-center justify-center ml-auto text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800">
+      <svg class="w-5 h-5 transition-transform group-hover:rotate-45" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 20C15 21.6569 13.6569 23 12 23C10.3431 23 9 21.6569 9 20C9 18.3431 10.3431 17 12 17C13.6569 17 15 18.3431 15 20ZM10.9719 20C10.9719 20.5678 11.4322 21.0281 12 21.0281C12.5678 21.0281 13.0281 20.5678 13.0281 20C13.0281 19.4322 12.5678 18.9719 12 18.9719C11.4322 18.9719 10.9719 19.4322 10.9719 20Z"/>
+        <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12ZM10.9719 12C10.9719 12.5678 11.4322 13.0281 12 13.0281C12.5678 13.0281 13.0281 12.5678 13.0281 12C13.0281 11.4322 12.5678 10.9719 12 10.9719C11.4322 10.9719 10.9719 11.4322 10.9719 12Z"/>
+        <path d="M15 4C15 5.65685 13.6569 7 12 7C10.3431 7 9 5.65685 9 4C9 2.34315 10.3431 1 12 1C13.6569 1 15 2.34315 15 4ZM10.9719 4C10.9719 4.56779 11.4322 5.02808 12 5.02808C12.5678 5.02808 13.0281 4.56779 13.0281 4C13.0281 3.43221 12.5678 2.97192 12 2.97192C11.4322 2.97192 10.9719 3.43221 10.9719 4Z"/>
+      </svg>
+      <span class="sr-only">Open actions menu</span>
+    </button>
+    <div id="menuTrackPgDiv" class="hidden mb-4 flex flex-col justify-end space-y-2 rounded-lg border border-gray-100 bg-white py-1 shadow-sm dark:border-gray-600 dark:bg-gray-700">
+      <ul class="text-sm text-gray-500 dark:text-gray-300">
+        <li>
+          <a id="copyBookmarkTrackPgA" class="flex items-center border-b border-gray-200 px-5 py-2 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="me-2 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M21 8C21 6.34315 19.6569 5 18 5H10C8.34315 5 7 6.34315 7 8V20C7 21.6569 8.34315 23 10 23H18C19.6569 23 21 21.6569 21 20V8ZM19 8C19 7.44772 18.5523 7 18 7H10C9.44772 7 9 7.44772 9 8V20C9 20.5523 9.44772 21 10 21H18C18.5523 21 19 20.5523 19 20V8Z"></path>
+              <path d="M6 3H16C16.5523 3 17 2.55228 17 2C17 1.44772 16.5523 1 16 1H6C4.34315 1 3 2.34315 3 4V18C3 18.5523 3.44772 19 4 19C4.55228 19 5 18.5523 5 18V4C5 3.44772 5.44772 3 6 3Z"></path>
+            </svg>
+            <span class="text-sm font-medium">Copy bookmark for playlist paste</span>
+          </a>
+        </li>
+        <li>
+          <a id="toggleLineCursorTrackPgA" class="flex items-center px-5 py-2 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="me-2 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7784 1C10.3231 1 9.92838 1.31506 9.82748 1.75902L8.63635 7H5C4.44772 7 4 7.44772 4 8C4 8.55228 4.44772 9 5 9H8.1818L6.81817 15H3C2.44772 15 2 15.4477 2 16C2 16.5523 2.44772 17 3 17H6.36362L5.27072 21.8088C5.13204 22.419 5.59584 23 6.22161 23C6.6769 23 7.07159 22.6849 7.17249 22.241L8.36362 17H13.3636L12.2707 21.8088C12.132 22.419 12.5958 23 13.2216 23C13.6769 23 14.0716 22.6849 14.1725 22.241L15.3636 17H19C19.5523 17 20 16.5523 20 16C20 15.4477 19.5523 15 19 15H15.8182L17.1818 9H21C21.5523 9 22 8.55228 22 8C22 7.44772 21.5523 7 21 7H17.6364L18.7292 2.19124C18.8679 1.58104 18.4041 1 17.7784 1C17.3231 1 16.9284 1.31506 16.8275 1.75902L15.6364 7H10.6363L11.7292 2.19124C11.8679 1.58104 11.4041 1 10.7784 1ZM13.8182 15L15.1818 9H10.1818L8.81817 15H13.8182Z"/>
+            </svg>
+            <span id="toggleLineCursorTrackPgSpan" class="text-sm font-medium">Toggle line cursor</span>
+          </a>
+        </li>
+        <li>
+          <a id="toggleTextSelTrackPgA" class="flex items-center px-5 py-2 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="me-2 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M1 22C1 21.4477 1.44772 21 2 21H22C22.5523 21 23 21.4477 23 22C23 22.5523 22.5523 23 22 23H2C1.44772 23 1 22.5523 1 22Z"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3056 1.87868C17.1341 0.707107 15.2346 0.707107 14.063 1.87868L3.38904 12.5526C2.9856 12.9561 2.70557 13.4662 2.5818 14.0232L2.04903 16.4206C1.73147 17.8496 3.00627 19.1244 4.43526 18.8069L6.83272 18.2741C7.38969 18.1503 7.89981 17.8703 8.30325 17.4669L18.9772 6.79289C20.1488 5.62132 20.1488 3.72183 18.9772 2.55025L18.3056 1.87868ZM15.4772 3.29289C15.8677 2.90237 16.5009 2.90237 16.8914 3.29289L17.563 3.96447C17.9535 4.35499 17.9535 4.98816 17.563 5.37868L15.6414 7.30026L13.5556 5.21448L15.4772 3.29289ZM12.1414 6.62869L4.80325 13.9669C4.66877 14.1013 4.57543 14.2714 4.53417 14.457L4.0014 16.8545L6.39886 16.3217C6.58452 16.2805 6.75456 16.1871 6.88904 16.0526L14.2272 8.71448L12.1414 6.62869Z"></path>
+            </svg>
+            <span class="text-sm font-medium">Toggle text markup</span>
+          </a>
+        </li>
+        <li>
+          <a id="toggleLineHighlightTrackPgA" class="flex items-center px-5 py-2 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="me-2 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.5 3h9.563M9.5 9h9.563M9.5 15h9.563M1.5 13a2 2 0 1 1 3.321 1.5L1.5 17h5m-5-15 2-1v6m-2 0h4"></path>
+            </svg>
+            <span class="text-sm font-medium">Toggle line highlight</span>
+          </a>
+        </li>
+        <li>
+          <a id="toggleAudStartTrackPgA" class="flex items-center px-5 py-2 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="me-2 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.46484 3.92349C4.79896 3.5739 4 4.05683 4 4.80888V19.1911C4 19.9432 4.79896 20.4261 5.46483 20.0765L19.1622 12.8854C19.8758 12.5108 19.8758 11.4892 19.1622 11.1146L5.46484 3.92349ZM2 4.80888C2 2.55271 4.3969 1.10395 6.39451 2.15269L20.0919 9.34382C22.2326 10.4677 22.2325 13.5324 20.0919 14.6562L6.3945 21.8473C4.39689 22.8961 2 21.4473 2 19.1911V4.80888Z"></path>
+            </svg>
+            <span id="toggleAudStartTrackPgSpan" class="text-sm font-medium">Toggle audio start</span>
+          </a>
+        </li>
+        <li>
+          <a id="toggleAudStopTrackPgA" class="flex items-center border-b border-gray-200 px-5 py-2 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="me-2 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M22 5C22 3.34315 20.6569 2 19 2H5C3.34315 2 2 3.34315 2 5V19C2 20.6569 3.34315 22 5 22H19C20.6569 22 22 20.6569 22 19V5ZM20 5C20 4.44772 19.5523 4 19 4H5C4.44772 4 4 4.44772 4 5V19C4 19.5523 4.44772 20 5 20H19C19.5523 20 20 19.5523 20 19V5Z"></path>
+            </svg>
+            <span id="toggleAudStopTrackPgSpan" class="text-sm font-medium">Toggle audio stop</span>
+          </a>
+        </li>
+        <li>
+          <label class="relative inline-flex cursor-pointer items-center px-4 pt-4">
+            <input type="checkbox" value="" class="peer sr-only" id="autoScrollWithAudioTrackPgInput" />
+            <span class="peer relative h-5 w-9 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-600 dark:peer-focus:ring-blue-800"></span>
+            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Auto text scroll with audio</span>
+          </label>
+          <a id="syncAudioTrackPgA" class="flex items-center px-5 py-2 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="me-2 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.94601 5.59492C3.92853 4.15983 1 5.48359 1 7.83062V16.1694C1 18.5164 3.92853 19.8402 5.94601 18.4051L11 14.81V16.1694C11 18.5164 13.9285 19.8402 15.946 18.4051L21.8074 14.2357C23.3975 13.1046 23.3975 10.8954 21.8074 9.76429L15.946 5.59492C13.9285 4.15983 11 5.48359 11 7.83062V9.18996L5.94601 5.59492ZM3.0462 7.83062C3.0462 7.04828 4.02237 6.60703 4.69487 7.08539L10.5563 11.2548C11.0863 11.6318 11.0863 12.3682 10.5563 12.7452L4.69487 16.9146C4.02237 17.393 3.0462 16.9517 3.0462 16.1694V7.83062ZM13.0462 7.83062C13.0462 7.04828 14.0224 6.60703 14.6949 7.08539L20.5563 11.2548C21.0863 11.6318 21.0863 12.3682 20.5563 12.7452L14.6949 16.9146C14.0224 17.393 13.0462 16.9517 13.0462 16.1694V7.83062Z" />
+            </svg>
+            <span class="text-sm font-medium">Sync audio to cursor text position</span>
+          </a>
+          <div class="flex flex-col justify-between space-y-3 px-4 pt-2 md:flex-row md:space-x-4 md:space-y-0">
+            <select id="clearBookmakTrackPgSelect" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500">
+              <option selected>Bookmark clear options:</option>
+              <option>Clear all text markups</option>
+              <option>Clear all line highlights</option>
+              <option>Clear all settings</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+    </div>
+        
+  </div>
+</section>

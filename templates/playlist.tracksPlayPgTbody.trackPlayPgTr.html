@@ -1,0 +1,24 @@
+<tr id="$ROW.trackPlayPgTr" data-tr-type="body" data-row="$ROW" class="border-b dark:border-gray-700">
+    <td class="w-2 p-2">
+      <div class="flex items-center">
+        <input id="$ROW.trackPlayPgInput" type="checkbox" data-row="$ROW" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800" />
+        <label for="$ROW.trackPlayPgInput" class="sr-only">checkbox</label>
+      </div>
+    </td>
+    <td data-td-type="body" class="px-3 py-3 flex">
+      <div class="flex-col w-full">
+        <a href="$TRACK_QUERYSTR_HREF" class="spa-nav font-medium text-blue-600 no-underline hover:underline dark:text-blue-500">$TITLE&nbsp;
+          <br>
+          <span data-cache-flag-trackref="$TRACKREF" class="inline-flex h-3 w-3 rounded-full $CACHE_STATUS_COLOR"></span>&nbsp;$TRACKREF&nbsp;-&nbsp;$DURmin</a>
+        <br>
+        <blockquote class="pl-2 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">$PROPERTIES_QS</blockquote>
+      </div>
+      <div data-div-type="dragHandle" class="hidden p-2 flex items-center justify-center" draggable="false">
+        <svg class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M22 6C22.5523 6 23 6.44772 23 7C23 7.55229 22.5523 8 22 8H2C1.44772 8 1 7.55228 1 7C1 6.44772 1.44772 6 2 6L22 6Z"/>
+          <path d="M22 11C22.5523 11 23 11.4477 23 12C23 12.5523 22.5523 13 22 13H2C1.44772 13 1 12.5523 1 12C1 11.4477 1.44772 11 2 11H22Z"/>
+          <path d="M23 17C23 16.4477 22.5523 16 22 16H2C1.44772 16 1 16.4477 1 17C1 17.5523 1.44772 18 2 18H22C22.5523 18 23 17.5523 23 17Z"/>
+          </svg>
+      </div>
+    </td>
+</tr>

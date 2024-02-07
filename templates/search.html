@@ -1,0 +1,192 @@
+<section id="searchPageSection" class="bg-gray-50 dark:bg-gray-900 sm:p-5">
+  <div class="mx-auto max-w-screen-xl lg:px-12">
+    <!-- Start coding here -->
+    <div data-dial-init class="z-20 group fixed top-12 end-4">
+      <button id="actionsDrpDnSrchPgBtn" type="button" data-dial-toggle="actionsDrpDnSrchPgDiv" data-dial-trigger="hover" aria-controls="actionsDrpDnSrchPgDiv" aria-expanded="false" class="flex items-center justify-center ml-auto text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800">
+        <svg class="w-5 h-5 transition-transform group-hover:rotate-45" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 20C15 21.6569 13.6569 23 12 23C10.3431 23 9 21.6569 9 20C9 18.3431 10.3431 17 12 17C13.6569 17 15 18.3431 15 20ZM10.9719 20C10.9719 20.5678 11.4322 21.0281 12 21.0281C12.5678 21.0281 13.0281 20.5678 13.0281 20C13.0281 19.4322 12.5678 18.9719 12 18.9719C11.4322 18.9719 10.9719 19.4322 10.9719 20Z"/>
+          <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12ZM10.9719 12C10.9719 12.5678 11.4322 13.0281 12 13.0281C12.5678 13.0281 13.0281 12.5678 13.0281 12C13.0281 11.4322 12.5678 10.9719 12 10.9719C11.4322 10.9719 10.9719 11.4322 10.9719 12Z"/>
+          <path d="M15 4C15 5.65685 13.6569 7 12 7C10.3431 7 9 5.65685 9 4C9 2.34315 10.3431 1 12 1C13.6569 1 15 2.34315 15 4ZM10.9719 4C10.9719 4.56779 11.4322 5.02808 12 5.02808C12.5678 5.02808 13.0281 4.56779 13.0281 4C13.0281 3.43221 12.5678 2.97192 12 2.97192C11.4322 2.97192 10.9719 3.43221 10.9719 4Z"/>
+        </svg>
+        <span class="sr-only">Open actions menu</span>
+      </button>
+      <div id="actionsDrpDnSrchPgDiv" class="z-20 hidden w-80 divide-y divide-gray-100 rounded bg-white shadow dark:divide-gray-600 dark:bg-gray-700">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="actionsDrpDnSrchPgBtn">
+          <li>
+            <a id="copyActionSrchPgA" class="flex px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+              <svg class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M21 8C21 6.34315 19.6569 5 18 5H10C8.34315 5 7 6.34315 7 8V20C7 21.6569 8.34315 23 10 23H18C19.6569 23 21 21.6569 21 20V8ZM19 8C19 7.44772 18.5523 7 18 7H10C9.44772 7 9 7.44772 9 8V20C9 20.5523 9.44772 21 10 21H18C18.5523 21 19 20.5523 19 20V8Z" />
+                <path d="M6 3H16C16.5523 3 17 2.55228 17 2C17 1.44772 16.5523 1 16 1H6C4.34315 1 3 2.34315 3 4V18C3 18.5523 3.44772 19 4 19C4.55228 19 5 18.5523 5 18V4C5 3.44772 5.44772 3 6 3Z" />
+              </svg>
+              &nbsp;&nbsp;&nbsp;Copy selections
+            </a>
+          </li>
+          <li>
+            <a id="gotoActiveActionSrchPgA" class="flex px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+              <svg class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9951 9.90096C15.2798 9.43957 17 7.42067 17 5C17 2.23858 14.7614 0 12 0C9.23857 0 6.99999 2.23858 6.99999 5C6.99999 7.42067 8.72019 9.43957 11.0048 9.90096C11.0016 9.93354 11 9.96658 11 10V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V10C13 9.96658 12.9984 9.93354 12.9951 9.90096ZM12 8.0065C10.3396 8.0065 8.9935 6.66044 8.9935 5C8.9935 3.33956 10.3396 1.9935 12 1.9935C13.6604 1.9935 15.0065 3.33956 15.0065 5C15.0065 6.66044 13.6604 8.0065 12 8.0065Z" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.78369 16.299C5.62603 15.6557 6.73206 15.2123 8.00216 15.0591C8.55047 14.993 8.99998 15.4477 8.99998 16C8.99998 16.5523 8.54907 16.9896 8.00393 17.0782C7.16144 17.215 6.4816 17.5189 5.99751 17.8885C5.32619 18.4012 5.09028 18.9788 5.12241 19.4288C5.15277 19.8538 5.44623 20.4684 6.50713 21.0185C7.57831 21.5739 9.33864 22 11.9999 22C14.6613 22 16.4216 21.5739 17.4928 21.0185C18.5537 20.4684 18.8472 19.8538 18.8775 19.4288C18.9097 18.9788 18.6738 18.4012 18.0024 17.8885C17.5184 17.5189 16.8385 17.215 15.996 17.0782C15.4509 16.9896 15 16.5523 15 16C15 15.4477 15.4495 14.993 15.9978 15.0591C17.2679 15.2123 18.3739 15.6557 19.2163 16.299C20.2637 17.0988 20.9653 18.2712 20.8724 19.5712C20.7778 20.8962 19.8838 22.0316 18.4134 22.794C16.9533 23.5511 14.8387 24 11.9999 24C9.16123 24 7.04656 23.5511 5.58649 22.794C4.11615 22.0316 3.22212 20.8962 3.12749 19.5712C3.03464 18.2712 3.73625 17.0988 4.78369 16.299Z" />
+              </svg>
+              &nbsp;&nbsp;&nbsp;Goto active selection
+            </a>
+          </li>
+          <li class="border-t pt-2">
+            <a id="pauseToggleSrchPgA" class="hidden flex px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+              <svg class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5C10 3.34315 8.65686 2 7 2H5C3.34315 2 2 3.34315 2 5V19C2 20.6569 3.34315 22 5 22H7C8.65686 22 10 20.6569 10 19V5ZM8 5C8 4.44772 7.55229 4 7 4H5C4.44772 4 4 4.44772 4 5V19C4 19.5523 4.44772 20 5 20H7C7.55229 20 8 19.5523 8 19V5Z" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M22 5C22 3.34315 20.6569 2 19 2H17C15.3431 2 14 3.34315 14 5V19C14 20.6569 15.3431 22 17 22H19C20.6569 22 22 20.6569 22 19V5ZM20 5C20 4.44772 19.5523 4 19 4H17C16.4477 4 16 4.44772 16 5V19C16 19.5523 16.4477 20 17 20H19C19.5523 20 20 19.5523 20 19V5Z" />
+              </svg>
+              &nbsp;&nbsp;&nbsp;Pause search toggle</a
+            >
+          </li>
+          <li class="px-4 py-2">
+            <div class="flex">
+                <button id="abortSearchSrchPgBtn" type="button" class="block h-7 items-center rounded-lg bg-blue-700 px-5 text-center text-s font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Abort</button>
+                <div id="searchInfoSrchPgDiv" class="w-max mt-1 px-1 text-s dark:text-white">Awaiting execution</div>
+            </div>
+              <div class="my-4 flex h-1.5 rounded-full bg-gray-200 dark:bg-gray-700">
+                <div id="progrSearchSrchPgDiv" class="rounded-full bg-blue-600 dark:bg-blue-500" style="width: 0%"></div>
+              </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-dial-init class="z-20 group fixed top-12 end-20">
+      <button id="filterDrpDnSrchPgBtn" type="button" data-dial-toggle="filterDrpDnSrchPgDiv" data-dial-trigger="hover" aria-controls="filterDrpDnSrchPgDiv" aria-expanded="false" class="flex items-center justify-center ml-auto text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800">
+        <svg class="w-5 h-5 transition-transform group-hover:rotate-45" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M4.2673 6.24223C2.20553 4.40955 3.50184 1 6.26039 1H17.7396C20.4981 1 21.7945 4.40955 19.7327 6.24223L15.3356 10.1507C15.1221 10.3405 15 10.6125 15 10.8981V21.0858C15 22.8676 12.8457 23.7599 11.5858 22.5L9.58578 20.5C9.21071 20.1249 8.99999 19.6162 8.99999 19.0858V10.8981C8.99999 10.6125 8.87785 10.3405 8.66436 10.1507L4.2673 6.24223ZM6.26039 3C5.34088 3 4.90877 4.13652 5.59603 4.74741L9.99309 8.6559C10.6336 9.22521 11 10.0412 11 10.8981V19.0858L13 21.0858V10.8981C13 10.0412 13.3664 9.22521 14.0069 8.6559L18.404 4.74741C19.0912 4.13652 18.6591 3 17.7396 3H6.26039Z" />
+        </svg>
+        <span class="sr-only">Open filter menu</span>
+      </button>
+      <div id="filterDrpDnSrchPgDiv" class="z-20 hidden w-54 divide-y divide-gray-100 rounded-lg bg-white p-3 shadow dark:bg-gray-700">
+        <ul class="space-y-2 text-sm" aria-labelledby="filterDrpDnSrchPgBtn">
+          <li class="flex items-center">
+            <button id="resetFilterSrchPgBtn" type="button" class="w-full px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <svg class="w-3 h-3 text-white me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z"/>
+              </svg>
+              Reset all
+            </button>
+          </li>
+          <li class="flex items-center">
+            <form id="titleFilterSrchPgForm" class="relative w-full">
+              <input type="search" id="titleFilterSrchPgInput" class="z-10 block w-full border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:border-l-gray-700 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500" placeholder="Title text" />
+              <button type="submit" class="absolute right-0 top-0 h-full rounded-r-lg border border-blue-700 bg-blue-700 p-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                </svg>
+                <span class="sr-only">Search</span>
+              </button>
+            </form>
+          </li>
+          <li class="flex items-center">
+            <input id="dur0to9minSrchPgInput" data-filter-dur="0" type="checkbox" value="0" class="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700" />
+            <label for="dur0to9minSrchPgInput" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">0-9min</label>
+          </li>
+          <li class="flex items-center">
+            <input id="dur10to19minSrchPgInput" data-filter-dur="1" type="checkbox" value="1" class="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700" />
+            <label for="dur10to19minSrchPgInput" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">10-19min</label>
+          </li>
+          <li class="flex items-center">
+            <input id="dur20to29minSrchPgInput" data-filter-dur="2" type="checkbox" value="2" class="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700" />
+            <label for="dur20to29minSrchPgInput" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">20-29min</label>
+          </li>
+          <li class="flex items-center">
+            <input id="dur30to39minSrchPgInput" data-filter-dur="3" type="checkbox" value="3" class="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700" />
+            <label for="dur30to39minSrchPgInput" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">30-39min</label>
+          </li>
+          <li class="flex items-center">
+            <input id="dur40to49minSrchPgInput" data-filter-dur="4" type="checkbox" value="4" class="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700" />
+            <label for="dur40to49minSrchPgInput" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">40-49min</label>
+          </li>
+          <li class="flex items-center">
+            <input id="dur50plusminSrchPgInput" data-filter-dur="5" type="checkbox" value="5" class="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700" />
+            <label for="dur50plusminSrchPgInput" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">50+min</label>
+          </li>
+          <li class="flex items-center border-t pt-2">
+            <input id="cachedAudioSrchPgInput" data-filter-cache="0" type="checkbox" value="0" class="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700" />
+            <label for="cachedAudioSrchPgInput" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Cached audio</label>
+          </li>
+          <li class="flex items-center">
+            <input id="nonCachedAudioSrchPgInput" data-filter-cache="1" type="checkbox" value="1" class="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700" />
+            <label for="nonCachedAudioSrchPgInput" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Non-Cached audio</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
+      <div class="mx-2">
+        <div class="flex items-center justify-between space-y-0 py-2 md:flex-row md:space-x-4 md:space-y-0">
+          <label class="relative m-3 inline-flex w-max cursor-pointer">
+            <input id="allAlbumsSrchPgInput" type="checkbox" value="" class="peer sr-only" />
+            <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rtl:peer-checked:after:-translate-x-full dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
+            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">All</span>
+          </label>
+          <select id="albumsSrchPgSelect" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"></select>
+        </div>
+        <div class="flex flex-col items-center justify-between space-y-3 py-2 md:flex-row md:space-x-4 md:space-y-0">
+          <div class="w-full">
+            <div id="critSrchPgDiv" class="flex">
+              <button id="critDrpDnSrchPgBtn" data-dropdown-toggle="critDrpDnSrchPgDiv" data-dropdown-placement="bottom-start" class="z-10 inline-flex flex-shrink-0 items-center rounded-l-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700" type="button">
+                <svg class="h4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
+              <div id="critDrpDnSrchPgDiv" class="z-20 hidden w-64 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="critDrpDnSrchPgBtn">
+                  <li>
+                    <div class="flex rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                      <label class="relative inline-flex w-full cursor-pointer items-center">
+                        <input id="applyAndSrchPgInput" type="checkbox" value="" class="peer sr-only" />
+                        <div class="peer h-5 w-9 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-500 dark:bg-gray-600 dark:peer-focus:ring-blue-800"></div>
+                        <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Apply "and" between terms</span>
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                      <label class="relative inline-flex w-full cursor-pointer items-center">
+                        <input type="text" id="andDelimiterSrchPgInput" class="block w-20 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Ex. ;" />
+                        <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">"and" delimiter</span>
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="relative w-full">
+                <form id="critSrchPgForm">
+                  <input type="search" id="critSrchPgInput" class="z-20 block w-full rounded-r-lg border border-l-2 border-gray-300 border-l-gray-50 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:border-l-gray-700 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500" placeholder="Search criteria" />
+                  <button type="submit" class="absolute right-0 top-0 h-full rounded-r-lg border border-blue-700 bg-blue-700 p-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                    </svg>
+                    <span class="sr-only">Search</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+            <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="p-2">
+                  <div class="flex items-center">
+                    <input id="selectAllResultsSrchPgInput" type="checkbox" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800" />
+                    <label for="selectAllResultsSrchPgInput" class="sr-only">checkbox</label>
+                  </div>
+                </th>
+                <th scope="col" class="px-3 py-3">Title</th>
+                <th scope="col" class="px-3 py-3">Ref</th>
+                <th scope="col" class="px-3 py-3">Dur</th>
+              </tr>
+            </thead>
+            <tbody id="resultSrchPgTbody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

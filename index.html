@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sutta player</title>
+    <meta
+      name="description"
+      content="Listen to, lend ear, set your heart on
+    knowing, and regard as worth grasping & mastering the words of the Tathāgata."
+    />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./app-tw.css" />
+    <link rel="manifest" href="./manifest.json" />
+    <script>
+      let requestCtx = location.pathname
+      if (requestCtx.indexOf('index.html') > -1) {
+        requestCtx = requestCtx.replace('index.html', '')
+        location.href = requestCtx
+      } else if (location.hash === '') {
+        const tpm = localStorage.getItem('TrackPersistentModel')
+        const tpmJson = JSON.parse(tpm)
+        requestCtx += tpmJson?.href ?? "#AN/AN2_5?cursorLinePosition=6&highlightLineRanges=6&markTextRanges=610-617,627-662,678-926,1484-1521&startAudio=44&stopAudio=65.75"
+        location.href = requestCtx
+      }
+      let envType = location.hash === '#catalog?envType=dev' ? 'dev' : 'prod'
+      if (envType === "dev") {
+        const importMapScript = document.createElement('script')
+        importMapScript.id = 'importMapScript'
+        importMapScript.type = 'importmap'
+        let importMapJson = {
+          "imports": {
+            "@popperjs/core": "./bin/popperjs-import-bundle.js",
+            "drag-drop-touch": "./bin/DragDropTouch-import-bundle.js",
+            "flowbite": "./bin/flowbite-import-bundle.js",
+            "prismjs/components/prism-core.min.js": "./bin/prism-core-import-bundle.js",
+            "prismjs/components/prism-markup.min.js": "./bin/prism-markup-import-bundle.js",
+            "prismjs/components/prism-markdown.min.js": "./bin/prism-markdown-import-bundle.js",
+            "prismjs/plugins/line-numbers/prism-line-numbers.min.js": "./bin/prism-line-numbers-import-bundle.js"
+          }
+        }
+        importMapScript.textContent = JSON.stringify(importMapJson)
+        console.log('using importMap:', importMapJson)
+        document.head.appendChild(importMapScript)
+      }
+    </script>
+  </head>
+
+  <body class="bg-gray-50 antialiased dark:bg-gray-900">
+    <div class="bg-gray-50 antialiased dark:bg-gray-900">
+      <!-- Navbar -->
+      <nav class="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white px-4 py-2.5 dark:border-gray-700 dark:bg-gray-800">
+        <div class="flex flex-wrap items-center justify-between">
+          <div class="flex items-center justify-start">
+            <button data-drawer-target="mainMenuShellPgAside" data-drawer-toggle="mainMenuShellPgAside" aria-controls="mainMenuShellPgAside" class="mr-2 cursor-pointer rounded-lg p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:bg-gray-700 dark:focus:ring-gray-700 md:hidden">
+              <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+              </svg>
+              <svg aria-hidden="true" class="hidden h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="sr-only">Toggle sidebar</span>
+            </button>
+
+            <!-- Media buttons -->
+            <div class="flex items-center gap-x-1 lg:order-2" role="group">
+              <button id="prevTrackShellPgBtn" disabled type="button" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600">
+                <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3956 19.7691C19.0541 20.2687 20 19.799 20 18.9724L20 5.02764C20 4.20106 19.0541 3.73137 18.3956 4.23095L9.20476 11.2033C8.67727 11.6035 8.67727 12.3965 9.20476 12.7967L18.3956 19.7691ZM22 18.9724C22 21.4521 19.1624 22.8612 17.1868 21.3625L7.99598 14.3901C6.41353 13.1896 6.41353 10.8104 7.99599 9.60994L17.1868 2.63757C19.1624 1.13885 22 2.5479 22 5.02764L22 18.9724Z" />
+                  <path d="M2 3C2 2.44772 2.44772 2 3 2C3.55228 2 4 2.44772 4 3V21C4 21.5523 3.55228 22 3 22C2.44772 22 2 21.5523 2 21V3Z" />
+                </svg>
+              </button>
+              <button id="playPauseToggleShellPgBtn" disabled type="button" class="relative rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600">
+                <svg id="playToggleShellSvg" class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.46484 3.92349C4.79896 3.5739 4 4.05683 4 4.80888V19.1911C4 19.9432 4.79896 20.4261 5.46483 20.0765L19.1622 12.8854C19.8758 12.5108 19.8758 11.4892 19.1622 11.1146L5.46484 3.92349ZM2 4.80888C2 2.55271 4.3969 1.10395 6.39451 2.15269L20.0919 9.34382C22.2326 10.4677 22.2325 13.5324 20.0919 14.6562L6.3945 21.8473C4.39689 22.8961 2 21.4473 2 19.1911V4.80888Z" />
+                </svg>
+                <svg id="pauseToggleShellSvg" class="h-6 w-6 hidden" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5C10 3.34315 8.65686 2 7 2H5C3.34315 2 2 3.34315 2 5V19C2 20.6569 3.34315 22 5 22H7C8.65686 22 10 20.6569 10 19V5ZM8 5C8 4.44772 7.55229 4 7 4H5C4.44772 4 4 4.44772 4 5V19C4 19.5523 4.44772 20 5 20H7C7.55229 20 8 19.5523 8 19V5Z"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M22 5C22 3.34315 20.6569 2 19 2H17C15.3431 2 14 3.34315 14 5V19C14 20.6569 15.3431 22 17 22H19C20.6569 22 22 20.6569 22 19V5ZM20 5C20 4.44772 19.5523 4 19 4H17C16.4477 4 16 4.44772 16 5V19C16 19.5523 16.4477 20 17 20H19C19.5523 20 20 19.5523 20 19V5Z"/>
+                </svg>
+
+                <div id="steroTypeShellPgDiv" class="absolute -end-2 -top-2 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white dark:border-gray-900">-</div>
+              </button>
+              <button id="nextTrackShellPgBtn" disabled type="button" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600">
+                <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.60439 4.23093C4.94586 3.73136 4 4.20105 4 5.02762V18.9724C4 19.799 4.94586 20.2686 5.60439 19.7691L14.7952 12.7967C15.3227 12.3965 15.3227 11.6035 14.7952 11.2033L5.60439 4.23093ZM2 5.02762C2 2.54789 4.83758 1.13883 6.81316 2.63755L16.004 9.60993C17.5865 10.8104 17.5865 13.1896 16.004 14.3901L6.81316 21.3625C4.83758 22.8612 2 21.4521 2 18.9724V5.02762Z" />
+                  <path d="M20 3C20 2.44772 20.4477 2 21 2C21.5523 2 22 2.44772 22 3V21C22 21.5523 21.5523 22 21 22C20.4477 22 20 21.5523 20 21V3Z" />
+                </svg>
+              </button>
+
+              <!-- extra media -->
+              <div class="flex">
+                <button id="audioDrpDnShellPgBtn" data-dropdown-toggle="audioDrpDnShellPgDiv" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600" type="button">
+                  <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4 1.8C11.5532 0.262376 14 1.07799 14 3.00001V21.1214C14 23.0539 11.5313 23.8627 10.3878 22.3049L6.49356 17H4C2.34315 17 1 15.6569 1 14V10C1 8.34315 2.34315 7 4 7H6.5L10.4 1.8ZM12 3L8.1 8.2C7.72229 8.70361 7.12951 9 6.5 9H4C3.44772 9 3 9.44772 3 10V14C3 14.5523 3.44772 15 4 15H6.49356C7.13031 15 7.72901 15.3032 8.10581 15.8165L12 21.1214V3Z" />
+                    <path d="M16.2137 4.17445C16.1094 3.56451 16.5773 3 17.1961 3C17.6635 3 18.0648 3.328 18.1464 3.78824C18.4242 5.35347 19 8.96465 19 12C19 15.0353 18.4242 18.6465 18.1464 20.2118C18.0648 20.672 17.6635 21 17.1961 21C16.5773 21 16.1094 20.4355 16.2137 19.8256C16.5074 18.1073 17 14.8074 17 12C17 9.19264 16.5074 5.8927 16.2137 4.17445Z" />
+                    <path d="M21.41 5C20.7346 5 20.2402 5.69397 20.3966 6.35098C20.6758 7.52413 21 9.4379 21 12C21 14.5621 20.6758 16.4759 20.3966 17.649C20.2402 18.306 20.7346 19 21.41 19C21.7716 19 22.0974 18.7944 22.2101 18.4509C22.5034 17.5569 23 15.5233 23 12C23 8.47672 22.5034 6.44306 22.2101 5.54913C22.0974 5.20556 21.7716 5 21.41 5Z" />
+                  </svg>
+                </button>
+                <div id="audioDrpDnShellPgDiv" class="z-20 hidden min-w-full divide-y divide-gray-100 rounded bg-white shadow-lg dark:divide-gray-600 dark:bg-gray-700">
+                  <ul aria-labelledby="audioDrpDnShellPgBtn">
+                    <li>
+                      <div class="flex gap-1 px-4 pt-2 text-sm">
+                        Track: <span id="trackRefShellPgSpan">Awaiting track selection</span>
+                      </div>
+                      <audio controls class="min-w-full px-4 py-3" id="controlShellPgAudio" controlsList="nodownload" crossorigin="anonymous"></audio>
+                      <div class="flex gap-1 px-4 py-3">
+                        <label class="relative inline-flex w-full cursor-pointer items-center">
+                          <button id="skipBackShellPgBtn" disabled type="button" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600">
+                            <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M18.054 18.4051C20.0715 19.8402 23 18.5164 23 16.1694V7.83062C23 5.48359 20.0715 4.15983 18.054 5.59492L13 9.18996V7.83063C13 5.48359 10.0715 4.15983 8.05399 5.59492L2.19258 9.7643C0.602474 10.8954 0.602471 13.1046 2.19258 14.2357L8.05399 18.4051C10.0715 19.8402 13 18.5164 13 16.1694V14.81L18.054 18.4051ZM20.9538 16.1694C20.9538 16.9517 19.9776 17.393 19.3051 16.9146L13.4437 12.7452C12.9137 12.3682 12.9137 11.6318 13.4437 11.2548L19.3051 7.08539C19.9776 6.60703 20.9538 7.04828 20.9538 7.83062V16.1694ZM10.9538 16.1694C10.9538 16.9517 9.97763 17.393 9.30513 16.9146L3.44372 12.7452C2.91369 12.3682 2.91369 11.6318 3.44373 11.2548L9.30513 7.08539C9.97763 6.60703 10.9538 7.04828 10.9538 7.83063L10.9538 16.1694Z" />
+                            </svg>
+                          </button>
+                          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">(sec)&nbsp;&nbsp;</span>
+                          <input type="number" type="number" min="0" max="500" id="currentTimeShellPgInput" class="block w-20 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" />
+                          <button id="skipForwardShellPgBtn" disabled type="button" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600">
+                            <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.94601 5.59492C3.92853 4.15983 1 5.48359 1 7.83062V16.1694C1 18.5164 3.92853 19.8402 5.94601 18.4051L11 14.81V16.1694C11 18.5164 13.9285 19.8402 15.946 18.4051L21.8074 14.2357C23.3975 13.1046 23.3975 10.8954 21.8074 9.76429L15.946 5.59492C13.9285 4.15983 11 5.48359 11 7.83062V9.18996L5.94601 5.59492ZM3.0462 7.83062C3.0462 7.04828 4.02237 6.60703 4.69487 7.08539L10.5563 11.2548C11.0863 11.6318 11.0863 12.3682 10.5563 12.7452L4.69487 16.9146C4.02237 17.393 3.0462 16.9517 3.0462 16.1694V7.83062ZM13.0462 7.83062C13.0462 7.04828 14.0224 6.60703 14.6949 7.08539L20.5563 11.2548C21.0863 11.6318 21.0863 12.3682 20.5563 12.7452L14.6949 16.9146C14.0224 17.393 13.0462 16.9517 13.0462 16.1694V7.83062Z" />
+                            </svg>
+                          </button>
+                          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Skip&nbsp;</span>
+                          <input type="number" id="skipSizeShellPgInput" min="0.25" step="0.25" value="5" class="block w-20 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" />
+                        </label>
+                        <label class="relative inline-flex cursor-pointer items-center"> </label>
+                      </div>
+                      <div class="flex gap-1 px-4 py-3">
+                        <label class="relative mb-2 h-5 inline-flex cursor-pointer items-center">
+                          <input type="checkbox" value="" class="peer sr-only" id="applyStopStartShellPgInput" />
+                          <span class="peer h-5 w-9 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-600 dark:peer-focus:ring-blue-800"></span>
+                          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Apply track stop/start</span>
+                          <button id="startAudioShellPgBtn" type="button" class="ml-2 w-max px-3 py-0.5 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                          -
+                          </button> 
+                          <span class="p-3">/</span>                          
+                          <button id="stopAudioShellPgBtn" type="button" class="w-max px-3 py-0.5 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                          -
+                          </button> 
+                        </label>
+                      </div>
+                      <div class="flex gap-1 px-4 py-3">
+                        <label class="relative mb-2 inline-flex cursor-pointer items-center">
+                          <input type="checkbox" value="" class="peer sr-only" id="autoPlayShellPgInput" />
+                          <span class="peer h-5 w-9 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-600 dark:peer-focus:ring-blue-800"></span>
+                          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Auto play</span>
+                        </label>
+                        <label class="relative mb-2 inline-flex cursor-pointer items-center">
+                          <input type="checkbox" value="" class="peer sr-only" id="playNextShellPgInput" />
+                          <span class="peer h-5 w-9 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-600 dark:peer-focus:ring-blue-800"></span>
+                          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Play next</span>
+                        </label>
+                        <label class="relative mb-2 inline-flex cursor-pointer items-center">
+                          <input type="checkbox" value="" class="peer sr-only" id="repeatShellPgInput" />
+                          <span class="peer h-5 w-9 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-600 dark:peer-focus:ring-blue-800"></span>
+                          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Repeat</span>
+                        </label>
+                      </div>
+                      <div class="flex gap-1 px-4 py-3 items-center">
+                        <label id="playbackRateShellPgLabel" for="playbackRateShellPgInput" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Playrate: x1</label>
+                        <input id="playbackRateShellPgInput" type="range" min="0.25" max="1.75" step="0.05" value="1" class="w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700">
+                      </div>
+                    </li>
+                  </ul>
+                </div>                                                
+                <button id="textDrpDnShellPgBtn" data-dropdown-toggle="textDrpDnShellPgDiv" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600" type="button">
+                  <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2 4C2 2.89543 2.89543 2 4 2H20C21.1046 2 22 2.89543 22 4V7C22 7.55229 21.5523 8 21 8C20.4477 8 20 7.55229 20 7V5C20 4.44772 19.5523 4 19 4H13V20H17C17.5523 20 18 20.4477 18 21C18 21.5523 17.5523 22 17 22H7C6.44772 22 6 21.5523 6 21C6 20.4477 6.44772 20 7 20H11V4H5C4.44772 4 4 4.44772 4 5V7C4 7.55229 3.55228 8 3 8C2.44772 8 2 7.55229 2 7V4Z" />
+                  </svg>
+                </button>
+                <div id="textDrpDnShellPgDiv" class="z-20 hidden min-w-full divide-y divide-gray-100 rounded bg-white shadow-lg dark:divide-gray-600 dark:bg-gray-700">
+                  <ul aria-labelledby="textDrpDnShellPgBtn">
+                    <li>
+                      <div class="flex items-center gap-3 px-4 py-3">
+                        <a id="scrollToTopShellPgA" tabindex="0" class="ml-3 flex cursor-pointer items-center rounded-lg p-2 text-sm font-medium text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                          <svg class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.33199 7.68464C6.94146 8.07517 6.3083 8.07517 5.91777 7.68464C5.52725 7.29412 5.52725 6.66095 5.91777 6.27043L10.5834 1.60483C11.3644 0.823781 12.6308 0.82378 13.4118 1.60483L18.0802 6.27327C18.4707 6.66379 18.4707 7.29696 18.0802 7.68748C17.6897 8.078 17.0565 8.078 16.666 7.68748L13 4.02145V21.9999C13 22.5522 12.5523 22.9999 12 22.9999C11.4477 22.9999 11 22.5522 11 21.9999V4.01666L7.33199 7.68464Z" />
+                          </svg>
+                          <span class="ml-6">Scroll to top of page</span>
+                        </a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex gap-3 px-4 pb-3">
+                        <form id="findInPageShellPgForm" class="relative w-full">
+                          <input type="search" id="findInPageShellPgInput" class="z-10 block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500" placeholder="Find text in page" />
+                          <button type="submit" class="absolute right-0 top-0 h-full rounded-r-lg border border-blue-700 bg-blue-700 p-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
+                            <span class="sr-only">Find in page</span>
+                          </button>
+                        </form>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <button id="offlineDrpDnShellPgBtn" data-dropdown-toggle="offlineDrpDnShellPgDiv" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600" type="button">
+                  <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.9388 15.5305C23.8976 13.572 22.5715 11.6399 20.2399 11.1301C20.6366 8.19441 18.6352 5.55606 16.1475 4.55683C14.7192 3.98314 13.0591 3.90634 11.4894 4.61884C10.6948 4.97952 9.95397 5.5283 9.29326 6.27428L10.7109 7.69191C11.2284 7.08364 11.7783 6.68412 12.3161 6.44C13.3264 5.98139 14.4137 6.01573 15.402 6.41272C17.4546 7.23718 18.7918 9.45194 18.0981 11.5493C17.8631 12.2598 18.3877 12.9816 19.1179 13.0017C20.991 13.0535 21.9134 14.3471 21.9392 15.5725C21.9522 16.1921 21.7361 16.7819 21.299 17.2166C21.1358 17.379 20.9304 17.5309 20.6759 17.6569L22.1332 19.1142C22.3412 18.9699 22.5336 18.8096 22.7096 18.6345C23.5704 17.7781 23.9622 16.6436 23.9388 15.5305Z" />
+                    <path d="M17.0547 20.0001L6.00002 20.0001C2.02368 20.0001 -0.0242121 16.4791 0.251925 13.4333C0.393448 11.8722 1.13583 10.3318 2.59153 9.33665C3.36385 8.80868 4.29719 8.46091 5.38235 8.32777L7.38131 10.3267C5.67248 10.1222 4.49222 10.46 3.72022 10.9877C2.82799 11.5977 2.33964 12.5562 2.24376 13.6138C2.04508 15.8053 3.49567 18.0001 6.00002 18.0001L15.0547 18.0001L17.0547 20.0001Z" />
+                    <path d="M2.0079 3.4221C1.61738 3.03158 1.61738 2.39841 2.0079 2.00789C2.39843 1.61737 3.03159 1.61737 3.42212 2.00789L22.0004 20.5862C22.391 20.9767 22.391 21.6099 22.0004 22.0004C21.6099 22.391 20.9768 22.391 20.5862 22.0004L2.0079 3.4221Z" />
+                  </svg>
+                </button>
+                <div id="offlineDrpDnShellPgDiv" class="left-5 z-20 hidden w-80 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
+                  <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="offlineDrpDnShellPgBtn">
+                    <li>
+                      <a id="downloadSelsShellPgA" class="flex px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <svg class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M23 22C23 22.5523 22.5523 23 22 23H2C1.44772 23 1 22.5523 1 22C1 21.4477 1.44772 21 2 21H22C22.5523 21 23 21.4477 23 22Z"/>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3099 18.6881C12.5581 19.3396 11.4419 19.3396 10.6901 18.6881L5.87088 14.5114C4.47179 13.2988 5.32933 11 7.18074 11L9.00001 11V3C9.00001 1.89543 9.89544 1 11 1L13 1C14.1046 1 15 1.89543 15 3L15 11H16.8193C18.6707 11 19.5282 13.2988 18.1291 14.5114L13.3099 18.6881ZM11.3451 16.6091C11.7209 16.9348 12.2791 16.9348 12.6549 16.6091L16.8193 13H14.5C13.6716 13 13 12.3284 13 11.5V3L11 3V11.5C11 12.3284 10.3284 13 9.50001 13L7.18074 13L11.3451 16.6091Z"/>
+                        </svg>
+                        &nbsp;&nbsp;&nbsp;Download selections
+                      </a>
+                    </li>
+                    <li>
+                      <a id="deleteSelsShellPgA" class="flex px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <svg class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M9 11C9 10.4477 9.44771 10 10 10C10.5523 10 11 10.4477 11 11V17C11 17.5523 10.5523 18 10 18C9.44771 18 9 17.5523 9 17V11Z"/>
+                          <path d="M14 10C13.4477 10 13 10.4477 13 11V17C13 17.5523 13.4477 18 14 18C14.5523 18 15 17.5523 15 17V11C15 10.4477 14.5523 10 14 10Z"/>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.53113 1C5.52364 1 3.19671 3.63591 3.56974 6.62017L5.28873 20.3721C5.47639 21.8734 6.7526 23 8.26557 23H15.7344C17.2474 23 18.5236 21.8734 18.7113 20.3721L20.4303 6.62017C20.8033 3.63591 18.4764 1 15.4689 1H8.53113ZM5.70148 5C6.11066 3.8455 7.21175 3 8.53113 3H15.4689C16.7883 3 17.8893 3.8455 18.2985 5H5.70148ZM5.63279 7L7.27329 20.124C7.33584 20.6245 7.76124 21 8.26557 21H15.7344C16.2388 21 16.6642 20.6245 16.7267 20.124L18.3672 7H5.63279Z"/>
+                        </svg>
+                        &nbsp;&nbsp;&nbsp;Delete selections
+                      </a>
+                    </li>
+                    <li class="border-t pt-2 px-4">
+                      <div class="flex">
+                        <button disabled id="abortOfflineShellPgBtn" type="button" class="text-s block h-7 items-center rounded-lg bg-blue-700 px-5 text-center font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Abort</button>
+                        <div id="offlineInfoShellPgDiv" class="text-s mt-1 w-max px-1 dark:text-white">Awaiting command</div>
+                      </div>
+                      <div class="my-4 flex h-1.5 rounded-full bg-gray-200 dark:bg-gray-700">
+                        <div id="progrOfflineShellPgDiv" class="rounded-full bg-blue-600 dark:bg-blue-500" style="width: 0%"></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <button id="shareDrpDnShellPgBtn" data-dropdown-toggle="shareDrpDnShellPgDiv" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-600" type="button">
+                  <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M23 5.5C23 7.98528 20.9853 10 18.5 10C17.0993 10 15.8481 9.36007 15.0228 8.35663L9.87308 10.9315C9.95603 11.2731 10 11.63 10 11.9971C10 12.3661 9.9556 12.7247 9.87184 13.0678L15.0228 15.6433C15.8482 14.6399 17.0993 14 18.5 14C20.9853 14 23 16.0147 23 18.5C23 20.9853 20.9853 23 18.5 23C16.0147 23 14 20.9853 14 18.5C14 18.1319 14.0442 17.7742 14.1276 17.4318L8.97554 14.8558C8.1502 15.8581 6.89973 16.4971 5.5 16.4971C3.01472 16.4971 1 14.4824 1 11.9971C1 9.51185 3.01472 7.49713 5.5 7.49713C6.90161 7.49713 8.15356 8.13793 8.97886 9.14254L14.1275 6.5682C14.0442 6.2258 14 5.86806 14 5.5C14 3.01472 16.0147 1 18.5 1C20.9853 1 23 3.01472 23 5.5ZM16.0029 5.5C16.0029 6.87913 17.1209 7.99713 18.5 7.99713C19.8791 7.99713 20.9971 6.87913 20.9971 5.5C20.9971 4.12087 19.8791 3.00287 18.5 3.00287C17.1209 3.00287 16.0029 4.12087 16.0029 5.5ZM16.0029 18.5C16.0029 19.8791 17.1209 20.9971 18.5 20.9971C19.8791 20.9971 20.9971 19.8791 20.9971 18.5C20.9971 17.1209 19.8791 16.0029 18.5 16.0029C17.1209 16.0029 16.0029 17.1209 16.0029 18.5ZM5.5 14.4943C4.12087 14.4943 3.00287 13.3763 3.00287 11.9971C3.00287 10.618 4.12087 9.5 5.5 9.5C6.87913 9.5 7.99713 10.618 7.99713 11.9971C7.99713 13.3763 6.87913 14.4943 5.5 14.4943Z"/>
+                  </svg>
+                </button>
+                <div id="shareDrpDnShellPgDiv" class="hidden mb-4 flex flex-col justify-end space-y-2 rounded-lg border border-gray-100 bg-white py-1 shadow-sm dark:border-gray-600 dark:bg-gray-700">
+                  <ul class="text-sm text-gray-500 dark:text-gray-300">
+                    <li>
+                      <a id="copyUrlShellPgA" class="flex items-center px-5 py-2 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <svg class="me-2 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M21 8C21 6.34315 19.6569 5 18 5H10C8.34315 5 7 6.34315 7 8V20C7 21.6569 8.34315 23 10 23H18C19.6569 23 21 21.6569 21 20V8ZM19 8C19 7.44772 18.5523 7 18 7H10C9.44772 7 9 7.44772 9 8V20C9 20.5523 9.44772 21 10 21H18C18.5523 21 19 20.5523 19 20V8Z"/>
+                          <path d="M6 3H16C16.5523 3 17 2.55228 17 2C17 1.44772 16.5523 1 16 1H6C4.34315 1 3 2.34315 3 4V18C3 18.5523 3.44772 19 4 19C4.55228 19 5 18.5523 5 18V4C5 3.44772 5.44772 3 6 3Z"/>                      </svg>
+                        <span class="text-sm font-medium">Copy URL to clipboard</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a id="gotoPasteUrlShellPgA" class="flex items-center px-5 py-2 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <svg class="me-2 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C11.2347 0 10.6293 0.125708 10.1567 0.359214C9.9845 0.44429 9.82065 0.544674 9.68861 0.62717L9.59036 0.688808C9.49144 0.751003 9.4082 0.803334 9.32081 0.853848C9.09464 0.984584 9.00895 0.998492 9.00053 0.999859C8.99983 0.999973 9.00019 0.999859 9.00053 0.999859C7.89596 0.999859 7 1.89543 7 3H6C4.34315 3 3 4.34315 3 6V20C3 21.6569 4.34315 23 6 23H18C19.6569 23 21 21.6569 21 20V6C21 4.34315 19.6569 3 18 3H17C17 1.89543 16.1046 1 15 1C15.0003 1 15.0007 1.00011 15 1C14.9916 0.998633 14.9054 0.984584 14.6792 0.853848C14.5918 0.80333 14.5086 0.751004 14.4096 0.688804L14.3114 0.62717C14.1793 0.544674 14.0155 0.44429 13.8433 0.359214C13.3707 0.125708 12.7653 0 12 0ZM16.7324 5C16.3866 5.5978 15.7403 6 15 6H9C8.25972 6 7.61337 5.5978 7.26756 5H6C5.44772 5 5 5.44772 5 6V20C5 20.5523 5.44772 21 6 21H18C18.5523 21 19 20.5523 19 20V6C19 5.44772 18.5523 5 18 5H16.7324ZM11.0426 2.15229C11.1626 2.09301 11.4425 2 12 2C12.5575 2 12.8374 2.09301 12.9574 2.15229C13.0328 2.18953 13.1236 2.24334 13.2516 2.32333L13.3261 2.37008C13.43 2.43542 13.5553 2.51428 13.6783 2.58539C13.9712 2.75469 14.4433 3 15 3V4H9V3C9.55666 3 10.0288 2.75469 10.3217 2.58539C10.4447 2.51428 10.57 2.43543 10.6739 2.37008L10.7484 2.32333C10.8764 2.24334 10.9672 2.18953 11.0426 2.15229Z"/>
+                        </svg>
+                        <span class="text-sm font-medium">Goto pasted URL from clipboard</span>
+                      </a>
+                    </li>
+                    <li class="border-t pt-2 mx-4">
+                      <label class="relative inline-flex cursor-pointer items-center">
+                        <svg class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M15.2929 3.29289C15.6834 2.90237 16.3166 2.90237 16.7071 3.29289L22.3657 8.95147C23.1216 9.70743 22.5862 11 21.5172 11H2C1.44772 11 1 10.5523 1 10C1 9.44772 1.44772 9 2 9H19.5858L15.2929 4.70711C14.9024 4.31658 14.9024 3.68342 15.2929 3.29289ZM4.41421 15H22C22.5523 15 23 14.5523 23 14C23 13.4477 22.5523 13 22 13H2.48284C1.41376 13 0.878355 14.2926 1.63431 15.0485L7.29289 20.7071C7.68342 21.0976 8.31658 21.0976 8.70711 20.7071C9.09763 20.3166 9.09763 19.6834 8.70711 19.2929L4.41421 15Z"/>
+                        </svg>
+                        &nbsp;&nbsp;&nbsp;Source:&nbsp;<select id="useTransferManageActionShellPgSelect" class="text-s rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500">
+                          <option value="0">clipboard</option>
+                          <option value="1">file</option>
+                        </select>
+                      </label>
+                      <input class="hidden block w-full my-2 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="fileTransferManageActionShellPgInput" type="file">
+                    </li>
+                  </ul>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Sidebar -->
+      <aside class="fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full border-r border-gray-200 bg-white pt-14 transition-transform dark:border-gray-700 dark:bg-gray-800 md:translate-x-0" aria-label="Sidenav" id="mainMenuShellPgAside">
+        <div class="side-Menu h-full overflow-y-auto bg-white px-3 py-5 dark:bg-gray-800">
+          <a href="https://suttaplayer.github.io/ai" class="mr-4 flex items-center justify-between">
+            <span class="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">sutta player</span>
+          </a>
+          <ul class="space-y-2">
+            <li>
+              <a id="trackMenuShellPgA" href="#AN/AN2_5?cursorLinePosition=6&highlightLineRanges=6&markTextRanges=610-617,627-662,678-926,1484-1521&startAudio=44&stopAudio=65.75" class="spa-nav group flex items-center rounded-lg p-2 text-base font-medium text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                <svg class="h-6 w-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.44152 5.00024C5.00819 5.00024 4.63559 5.27423 4.50847 5.67256C4.12006 6.88964 3.54128 8.7533 3.03552 10.582C3.77685 10.2098 4.61396 10.0002 5.5 10.0002C8.08018 10.0002 10.2454 11.7769 10.839 14.1737C11.1739 14.0666 11.5598 14.0002 12 14.0002C12.4402 14.0002 12.8261 14.0666 13.161 14.1737C13.7546 11.7769 15.9198 10.0002 18.5 10.0002C19.386 10.0002 20.2231 10.2098 20.9645 10.582C20.4587 8.7533 19.8799 6.88964 19.4915 5.67256C19.3644 5.27423 18.9918 5.00024 18.5585 5.00024H17C16.4477 5.00024 16 4.55253 16 4.00024C16 3.44796 16.4477 3.00024 17 3.00024H18.5585C19.8469 3.00024 21.0005 3.82262 21.3969 5.06451C21.8162 6.3784 22.4602 8.45388 23.0003 10.4437C23.2702 11.438 23.517 12.4208 23.6969 13.2818C23.8041 13.7942 23.8932 14.2893 23.9465 14.7302C23.9818 14.9818 24 15.2389 24 15.5002C24 18.5378 21.5376 21.0002 18.5 21.0002C15.7742 21.0002 13.5116 19.0174 13.0758 16.4154C12.8172 16.1044 12.3886 16.0002 12 16.0002C11.6114 16.0002 11.1828 16.1044 10.9242 16.4154C10.4884 19.0174 8.22578 21.0002 5.5 21.0002C2.46243 21.0002 0 18.5378 0 15.5002C0 15.2389 0.0182295 14.9818 0.0534864 14.7302C0.106769 14.2893 0.195948 13.7942 0.303069 13.2818C0.483034 12.4208 0.729752 11.438 0.99968 10.4437C1.53984 8.45388 2.18384 6.3784 2.60314 5.06451C2.99947 3.82262 4.15313 3.00024 5.44152 3.00024H7C7.55228 3.00024 8 3.44796 8 4.00024C8 4.55253 7.55228 5.00024 7 5.00024H5.44152ZM2.00992 15.5002C2.00992 17.4278 3.57248 18.9903 5.5 18.9903C7.42752 18.9903 8.99008 17.4278 8.99008 15.5002C8.99008 13.5727 7.42752 12.0102 5.5 12.0102C3.57248 12.0102 2.00992 13.5727 2.00992 15.5002ZM15.0099 15.5002C15.0099 17.4278 16.5725 18.9903 18.5 18.9903C20.4275 18.9903 21.9901 17.4278 21.9901 15.5002C21.9901 13.5727 20.4275 12.0102 18.5 12.0102C16.5725 12.0102 15.0099 13.5727 15.0099 15.5002Z"/>                  
+                </svg>
+                <span class="ml-3">Reader</span>
+              </a>
+            </li>
+            <li>
+              <a id="catMenuShellPgA" href="#catalog" class="spa-nav group flex items-center rounded-lg p-2 text-base font-medium text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                <svg class="h-6 w-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.18753 11.3788C4.03002 11.759 4 11.9533 4 12V20.0018C4 20.5529 4.44652 21 5 21H8V15C8 13.8954 8.89543 13 10 13H14C15.1046 13 16 13.8954 16 15V21H19C19.5535 21 20 20.5529 20 20.0018V12C20 11.9533 19.97 11.759 19.8125 11.3788C19.6662 11.0256 19.4443 10.5926 19.1547 10.1025C18.5764 9.1238 17.765 7.97999 16.8568 6.89018C15.9465 5.79788 14.9639 4.78969 14.0502 4.06454C13.5935 3.70204 13.1736 3.42608 12.8055 3.2444C12.429 3.05862 12.1641 3 12 3C11.8359 3 11.571 3.05862 11.1945 3.2444C10.8264 3.42608 10.4065 3.70204 9.94978 4.06454C9.03609 4.78969 8.05348 5.79788 7.14322 6.89018C6.23505 7.97999 5.42361 9.1238 4.8453 10.1025C4.55568 10.5926 4.33385 11.0256 4.18753 11.3788ZM10.3094 1.45091C10.8353 1.19138 11.4141 1 12 1C12.5859 1 13.1647 1.19138 13.6906 1.45091C14.2248 1.71454 14.7659 2.07921 15.2935 2.49796C16.3486 3.33531 17.4285 4.45212 18.3932 5.60982C19.3601 6.77001 20.2361 8.0012 20.8766 9.08502C21.1963 9.62614 21.4667 10.1462 21.6602 10.6134C21.8425 11.0535 22 11.5467 22 12V20.0018C22 21.6599 20.6557 23 19 23H16C14.8954 23 14 22.1046 14 21V15H10V21C10 22.1046 9.10457 23 8 23H5C3.34434 23 2 21.6599 2 20.0018V12C2 11.5467 2.15748 11.0535 2.33982 10.6134C2.53334 10.1462 2.80369 9.62614 3.12345 9.08502C3.76389 8.0012 4.63995 6.77001 5.60678 5.60982C6.57152 4.45212 7.65141 3.33531 8.70647 2.49796C9.2341 2.07921 9.77521 1.71454 10.3094 1.45091Z" />
+                </svg>
+                <span class="ml-3">Catalog</span>
+              </a>
+            </li>
+            <li>
+              <a id="srchMenuShellPgA" href="#search" class="spa-nav group flex items-center rounded-lg p-2 text-base font-medium text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                <svg class="h-6 w-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0392 15.6244C18.2714 14.084 19.0082 12.1301 19.0082 10.0041C19.0082 5.03127 14.9769 1 10.0041 1C5.03127 1 1 5.03127 1 10.0041C1 14.9769 5.03127 19.0082 10.0041 19.0082C12.1301 19.0082 14.084 18.2714 15.6244 17.0392L21.2921 22.707C21.6828 23.0977 22.3163 23.0977 22.707 22.707C23.0977 22.3163 23.0977 21.6828 22.707 21.2921L17.0392 15.6244ZM10.0041 17.0173C6.1308 17.0173 2.99087 13.8774 2.99087 10.0041C2.99087 6.1308 6.1308 2.99087 10.0041 2.99087C13.8774 2.99087 17.0173 6.1308 17.0173 10.0041C17.0173 13.8774 13.8774 17.0173 10.0041 17.0173Z" />
+                </svg>
+                <span class="ml-3">Search</span>
+              </a>
+            </li>
+            <li>
+              <a id="playMenuShellPgA" href="#playlist" class="spa-nav group flex items-center rounded-lg p-2 text-base font-medium text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                <svg class="h-6 w-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9 6C9 4.34315 7.65685 3 6 3H4C2.34315 3 1 4.34315 1 6V8C1 9.65685 2.34315 11 4 11H6C7.65685 11 9 9.65685 9 8V6ZM7 6C7 5.44772 6.55228 5 6 5H4C3.44772 5 3 5.44772 3 6V8C3 8.55228 3.44772 9 4 9H6C6.55228 9 7 8.55228 7 8V6Z" />
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16C9 14.3431 7.65685 13 6 13H4C2.34315 13 1 14.3431 1 16V18C1 19.6569 2.34315 21 4 21H6C7.65685 21 9 19.6569 9 18V16ZM7 16C7 15.4477 6.55228 15 6 15H4C3.44772 15 3 15.4477 3 16V18C3 18.5523 3.44772 19 4 19H6C6.55228 19 7 18.5523 7 18V16Z" />
+                  <path d="M11 7C11 6.44772 11.4477 6 12 6H22C22.5523 6 23 6.44772 23 7C23 7.55228 22.5523 8 22 8H12C11.4477 8 11 7.55228 11 7Z" />
+                  <path d="M11 17C11 16.4477 11.4477 16 12 16H22C22.5523 16 23 16.4477 23 17C23 17.5523 22.5523 18 22 18H12C11.4477 18 11 17.5523 11 17Z" />
+                </svg>
+                <span class="ml-3">Playlist</span>
+              </a>
+            </li>
+            <li>
+              <a data-dropdown-toggle="settingsDrpDnShellPgDiv" class="group flex items-center rounded-lg p-2 text-base font-medium text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                <svg class="h-6 w-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3.59938 6.22413C3.362 4.82033 4.68002 3.64638 6.07306 4.02084L7.12777 4.30435C7.96485 4.52937 8.85305 4.19092 9.31887 3.46943L10.3298 1.90368C11.1077 0.698775 12.8923 0.698773 13.6702 1.90368L14.6811 3.46943C15.1469 4.19092 16.0351 4.52937 16.8722 4.30435L17.9269 4.02084C19.32 3.64638 20.638 4.82033 20.4006 6.22413L20.1405 7.76265C20.0068 8.55335 20.3773 9.3442 21.0747 9.75663L22.0388 10.3268C23.3204 11.0847 23.3204 12.9153 22.0388 13.6732L21.0747 14.2434C20.3773 14.6558 20.0068 15.4467 20.1405 16.2374L20.4006 17.7759C20.638 19.1797 19.32 20.3536 17.9269 19.9792L16.8722 19.6957C16.0351 19.4706 15.1469 19.8091 14.6811 20.5306L13.6702 22.0963C12.8923 23.3012 11.1077 23.3012 10.3298 22.0963L9.31887 20.5306C8.85305 19.8091 7.96485 19.4706 7.12777 19.6957L6.07306 19.9792C4.68002 20.3536 3.362 19.1797 3.59938 17.7759L3.85954 16.2374C3.99324 15.4467 3.62271 14.6558 2.92531 14.2434L1.96116 13.6732C0.679612 12.9153 0.679614 11.0847 1.96116 10.3268L2.92531 9.75663C3.62271 9.3442 3.99324 8.55335 3.85954 7.76265L3.59938 6.22413ZM9.03042 6.14621H6.06085V9.0731L3.09127 12L6.06085 14.9269V17.8538H9.03042L12 20.7807L14.9696 17.8538H17.9392V14.9269L20.9087 12L17.9392 9.0731V6.14621H14.9696L12 3.21931L9.03042 6.14621Z" />
+                  <path d="M16.4515 12C16.4515 14.4247 14.4572 16.3903 11.9971 16.3903C9.53706 16.3903 7.54277 14.4247 7.54277 12C7.54277 9.57528 9.53706 7.60965 11.9971 7.60965C14.4572 7.60965 16.4515 9.57528 16.4515 12ZM9.51963 12C9.51963 13.3486 10.6288 14.4419 11.9971 14.4419C13.3654 14.4419 14.4746 13.3486 14.4746 12C14.4746 10.6514 13.3654 9.5581 11.9971 9.5581C10.6288 9.5581 9.51963 10.6514 9.51963 12Z" />
+                </svg>
+                <span class="ml-3">Settings</span>
+              </a>
+              <div id="settingsDrpDnShellPgDiv" class="z-10 hidden w-52 p-2 my-4 max-w-sm list-none divide-y divide-gray-100 overflow-hidden rounded bg-white text-base shadow-lg dark:divide-gray-600 dark:bg-gray-700">
+                <div>
+                  <div class="grid gap-3 px-4 sm:grid-cols-2 sm:gap-3">
+                    <label class="relative mb-2 inline-flex cursor-pointer items-center">
+                      <button id="darkThemeShellPgBtn" type="button" class="rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+                        <svg id="darkThemeToggleShellPgSvg" class="hidden h-5 w-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.39703 11.6315C3.39703 16.602 7.42647 20.6315 12.397 20.6315C15.6858 20.6315 18.5656 18.8664 20.1358 16.23C16.7285 17.3289 12.6922 16.7548 9.98282 14.0455C7.25201 11.3146 6.72603 7.28415 7.86703 3.89293C5.20697 5.47927 3.39703 8.38932 3.39703 11.6315ZM21.187 13.5851C22.0125 13.1021 23.255 13.6488 23 14.5706C21.7144 19.2187 17.4543 22.6315 12.397 22.6315C6.3219 22.6315 1.39703 17.7066 1.39703 11.6315C1.39703 6.58874 4.93533 2.25845 9.61528 0.999986C10.5393 0.751502 11.0645 1.99378 10.5641 2.80935C8.70026 5.84656 8.83194 10.0661 11.397 12.6312C13.9319 15.1662 18.1365 15.3702 21.187 13.5851Z" />
+                        </svg>
+                        <svg id="lightThemeToggleShellPgSvg" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1C11 0.447715 11.4477 0 12 0C12.5523 0 13 0.447715 13 1V3C13 3.55228 12.5523 4 12 4C11.4477 4 11 3.55228 11 3V1Z" />
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12ZM8.06167 12C8.06167 14.1751 9.82492 15.9383 12 15.9383C14.1751 15.9383 15.9383 14.1751 15.9383 12C15.9383 9.82492 14.1751 8.06167 12 8.06167C9.82492 8.06167 8.06167 9.82492 8.06167 12Z" />
+                          <path d="M20.4853 3.51472C20.0947 3.12419 19.4616 3.12419 19.0711 3.51472L17.6568 4.92893C17.2663 5.31946 17.2663 5.95262 17.6568 6.34315C18.0474 6.73367 18.6805 6.73367 19.0711 6.34315L20.4853 4.92893C20.8758 4.53841 20.8758 3.90524 20.4853 3.51472Z" />
+                          <path d="M1 13C0.447715 13 0 12.5523 0 12C0 11.4477 0.447715 11 1 11H3C3.55228 11 4 11.4477 4 12C4 12.5523 3.55228 13 3 13H1Z" />
+                          <path d="M3.51472 3.51472C3.1242 3.90524 3.1242 4.53841 3.51472 4.92893L4.92894 6.34315C5.31946 6.73367 5.95263 6.73367 6.34315 6.34315C6.73368 5.95262 6.73368 5.31946 6.34315 4.92893L4.92894 3.51472C4.53841 3.12419 3.90525 3.12419 3.51472 3.51472Z" />
+                          <path d="M11 21C11 20.4477 11.4477 20 12 20C12.5523 20 13 20.4477 13 21V23C13 23.5523 12.5523 24 12 24C11.4477 24 11 23.5523 11 23V21Z" />
+                          <path d="M6.34315 17.6569C5.95263 17.2663 5.31946 17.2663 4.92894 17.6569L3.51473 19.0711C3.1242 19.4616 3.1242 20.0948 3.51473 20.4853C3.90525 20.8758 4.53842 20.8758 4.92894 20.4853L6.34315 19.0711C6.73368 18.6805 6.73368 18.0474 6.34315 17.6569Z" />
+                          <path d="M21 13C20.4477 13 20 12.5523 20 12C20 11.4477 20.4477 11 21 11H23C23.5523 11 24 11.4477 24 12C24 12.5523 23.5523 13 23 13H21Z" />
+                          <path d="M17.6568 17.6569C17.2663 18.0474 17.2663 18.6805 17.6568 19.0711L19.0711 20.4853C19.4616 20.8758 20.0947 20.8758 20.4853 20.4853C20.8758 20.0948 20.8758 19.4616 20.4853 19.0711L19.0711 17.6569C18.6805 17.2663 18.0474 17.2663 17.6568 17.6569Z" />
+                        </svg>
+                      </button>
+                      <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dark/night mode</span>
+                    </label>
+                  </div>
+                  <div class="grid gap-3 px-4 sm:grid-cols-2 sm:gap-3 border-t pt-1">
+                    <label class="relative mb-2 inline-flex cursor-pointer items-center">
+                      <button id="resetAppShellPgBtn" type="button" class="rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+                        <svg class="h-5 w-5" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C3.44772 1 3 1.44772 3 2V22C3 22.5523 3.44772 23 4 23C4.55228 23 5 22.5523 5 22V13.5983C5.46602 13.3663 6.20273 13.0429 6.99251 12.8455C8.40911 12.4914 9.54598 12.6221 10.168 13.555C11.329 15.2964 13.5462 15.4498 15.2526 15.2798C17.0533 15.1004 18.8348 14.5107 19.7354 14.1776C20.5267 13.885 21 13.1336 21 12.3408V5.72337C21 4.17197 19.3578 3.26624 18.0489 3.85981C16.9875 4.34118 15.5774 4.87875 14.3031 5.0563C12.9699 5.24207 12.1956 4.9907 11.832 4.44544C10.5201 2.47763 8.27558 2.24466 6.66694 2.37871C6.0494 2.43018 5.47559 2.53816 5 2.65249V2C5 1.44772 4.55228 1 4 1ZM5 4.72107V11.4047C5.44083 11.2247 5.95616 11.043 6.50747 10.9052C8.09087 10.5094 10.454 10.3787 11.832 12.4455C12.3106 13.1634 13.4135 13.4531 15.0543 13.2897C16.5758 13.1381 18.1422 12.6321 19 12.3172V5.72337C19 5.67794 18.9081 5.66623 18.875 5.68126C17.7575 6.18804 16.1396 6.81972 14.5791 7.03716C13.0776 7.24639 11.2104 7.1185 10.168 5.55488C9.47989 4.52284 8.2244 4.25586 6.83304 4.3718C6.12405 4.43089 5.46427 4.58626 5 4.72107Z" />
+                        </svg>
+                      </button>
+                      <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Reset App...</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul class="mt-5 space-y-2 border-t border-gray-200 pt-5 dark:border-gray-700">
+            <li>
+              <a id="abtMenuShellPgA" href="#about" class="spa-nav group flex items-center rounded-lg p-2 text-base font-medium text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99999 4.00024C9.99999 5.30646 9.16518 6.4177 7.99999 6.82954V7.52646L13.1332 11.7263C13.5607 12.076 13.6237 12.706 13.274 13.1335C12.9242 13.5609 12.2942 13.6239 11.8668 13.2742L7.99999 10.1106V13.8189L10.9363 21.6491C11.1302 22.1662 10.8682 22.7427 10.3511 22.9366C9.83399 23.1305 9.25758 22.8685 9.06366 22.3514L6.99999 16.8482L4.93632 22.3514C4.7424 22.8685 4.16598 23.1305 3.64886 22.9366C3.13174 22.7427 2.86974 22.1662 3.06366 21.6491L5.99999 13.8189V9.61828L4.22293 10.5068L4.94867 12.684C5.12332 13.208 4.84016 13.7743 4.31622 13.9489C3.79227 14.1236 3.22595 13.8404 3.0513 13.3165L2.32557 11.1393C2.01083 10.195 2.43828 9.16306 3.32851 8.71795L5.99999 7.38221V6.82954C4.83479 6.4177 3.99999 5.30646 3.99999 4.00024C3.99999 2.34339 5.34313 1.00024 6.99999 1.00024C8.65684 1.00024 9.99999 2.34339 9.99999 4.00024ZM5.89265 4.00024C5.89265 4.61181 6.38842 5.10758 6.99999 5.10758C7.61155 5.10758 8.10732 4.61181 8.10732 4.00024C8.10732 3.38868 7.61155 2.89291 6.99999 2.89291C6.38842 2.89291 5.89265 3.38868 5.89265 4.00024Z" />
+                  <path d="M15.7592 14.3495C15.3998 13.9301 14.7685 13.8816 14.3492 14.241C13.9299 14.6004 13.8813 15.2317 14.2407 15.651L20.2407 22.651C20.6002 23.0704 21.2315 23.1189 21.6508 22.7595C22.0701 22.4001 22.1187 21.7688 21.7592 21.3495L15.7592 14.3495Z" />
+                </svg>
+                <span class="ml-3">About</span>
+              </a>
+            </li>
+            <li>
+              <a id="hlpMenuShellPgA" href="#help" class="spa-nav group flex items-center rounded-lg p-2 text-base font-medium text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12ZM3.00683 12C3.00683 16.9668 7.03321 20.9932 12 20.9932C16.9668 20.9932 20.9932 16.9668 20.9932 12C20.9932 7.03321 16.9668 3.00683 12 3.00683C7.03321 3.00683 3.00683 7.03321 3.00683 12Z" />
+                  <path d="M13.5 18C13.5 18.8284 12.8284 19.5 12 19.5C11.1716 19.5 10.5 18.8284 10.5 18C10.5 17.1716 11.1716 16.5 12 16.5C12.8284 16.5 13.5 17.1716 13.5 18Z" />
+                  <path d="M11 12V14C11 14 11 15 12 15C13 15 13 14 13 14V12C13 12 13.4792 11.8629 13.6629 11.7883C13.6629 11.7883 13.9969 11.6691 14.2307 11.4896C14.4646 11.3102 14.6761 11.097 14.8654 10.8503C15.0658 10.6035 15.2217 10.3175 15.333 9.99221C15.4443 9.66693 15.5 9.4038 15.5 9C15.5 8.32701 15.3497 7.63675 15.0491 7.132C14.7596 6.61604 14.3476 6.21786 13.8132 5.93745C13.2788 5.64582 12.6553 5.5 11.9427 5.5C11.4974 5.5 11.1021 5.55608 10.757 5.66825C10.4118 5.7692 10.1057 5.9094 9.83844 6.08887C9.58236 6.25712 9.36525 6.4478 9.18711 6.66091C9.02011 6.86281 8.8865 7.0591 8.78629 7.24978C8.68609 7.44046 8.61929 7.6087 8.58589 7.75452C8.51908 7.96763 8.49125 8.14149 8.50238 8.27609C8.52465 8.41069 8.59145 8.52285 8.70279 8.61258C8.81413 8.70231 8.9867 8.79765 9.22051 8.8986C9.46546 8.97712 9.65473 9.00516 9.78834 8.98273C9.93308 8.96029 10.05 8.89299 10.1391 8.78083C10.1391 8.78083 10.6138 8.10569 10.7474 7.97109C10.8922 7.82528 11.0703 7.71312 11.2819 7.6346C11.4934 7.54487 11.7328 7.5 12 7.5C12.579 7.5 13.0076 7.64021 13.286 7.92062C13.5754 8.18982 13.6629 8.41629 13.6629 8.93225C13.6629 9.27996 13.6017 9.56038 13.4792 9.77349C13.3567 9.9866 13.1953 10.1605 12.9949 10.2951C12.9949 10.2951 12.7227 10.3991 12.5 10.5C12.2885 10.5897 11.9001 10.7381 11.6997 10.8503C11.5104 10.9512 11.4043 11.0573 11.2819 11.2144C11.1594 11.3714 11 11.7308 11 12Z" />
+                </svg>
+                <span class="ml-3">Help</span>
+              </a>
+            </li>
+          </ul>
+          <div class="mt-4 flex rounded-lg bg-blue-50 p-4 text-sm text-blue-800 dark:bg-gray-700 dark:text-blue-400" role="alert">
+            <div>
+              <blockquote>
+                <svg class="mb-4 h-6 w-6 text-gray-400 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+                  <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+                </svg>
+                Listen to, lend ear, set your heart on knowing, and regard as worth grasping & mastering the words of the Tathāgata. <cite>- AN 2:46</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="h-screen p-4 pt-16 md:ml-64">
+        <!-- PageSection's -->
+        <section id="trackPageSection" class="hidden bg-gray-50 dark:bg-gray-900 sm:p-5"></section>
+        <section id="catalogPageSection" class="hidden bg-gray-50 dark:bg-gray-900 sm:p-5"></section>
+        <section id="searchPageSection" class="hidden bg-gray-50 dark:bg-gray-900 sm:p-5"></section>
+        <section id="playlistPageSection" class="hidden bg-gray-50 dark:bg-gray-900 sm:p-5"></section>
+        <section id="aboutPageSection" class="hidden bg-gray-50 dark:bg-gray-900 sm:p-5"></section>
+        <section id="helpPageSection" class="hidden bg-gray-50 dark:bg-gray-900 sm:p-5"></section>
+        <section id="e404PageSection" class="hidden bg-gray-50 dark:bg-gray-900 sm:p-5"></section>
+      </main>
+    </div>
+    <div id="toastShellPgDiv" style="margin: auto;" class="fixed bottom-6 z-50 flex hidden w-full items-center rounded-lg bg-white p-4 text-gray-500 shadow dark:bg-gray-800 dark:text-gray-400 justify-center" role="alert">
+      <div class="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-500 dark:bg-blue-800 dark:text-blue-200">
+        <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.6-8.5h0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+        </svg>
+        <span class="sr-only">Info icon</span>
+      </div>
+      <div id="toastMsgShellPgDiv" class="ml-3 text-sm font-normal"></div>
+      <button id="toastCloseShellPgBtn" type="button" class="-mx-1.5 -my-1.5 ml-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white" data-dismiss-target="#toastShellPgDiv" aria-label="Close">
+        <span class="sr-only">Close</span>
+        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+      </button>
+    </div>
+
+    <button data-modal-target="promptShellPgDiv" data-modal-toggle="promptShellPgDiv" class="hidden block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+      Toggle modal
+    </button>
+    <div id="promptShellPgDiv" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-md max-h-full">
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <button id="closePromptShellPgBtn" type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+              </button>
+              <div class="p-4 md:p-5 text-center">
+                  <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                  </svg>
+                  <h3 id="promptShellPgH3" class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Alert message?</h3>
+                  <button id="okayPromptShellPgBtn" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">Okay</button>
+                  <button id="cancelPromptShellPgBtn" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <script>
+      let appScriptType = envType === "dev" ? 'module' : 'text/javascript'
+      const appScript = document.createElement('script')
+      appScript.src = "./bin/app.js"
+      appScript.type = appScriptType
+      console.log('app script:', envType, {src: appScript.src, type: appScript.type})
+      document.body.appendChild(appScript)
+    </script>
+  </body>
+</html>
