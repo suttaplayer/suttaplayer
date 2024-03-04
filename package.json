@@ -1,17 +1,19 @@
 {
   "name": "suttaplayer",
-  "version": "2.1.0",
+  "version": "2.1.3",
   "description": "Sutta player is a combined text/audio media player with the purpose of helping you lend ear, visit and grow close to the true Dhamma.",
   "main": "bin/app.js",
   "bin": {
     "suttaplayer": "bin/app.js"
   },
   "scripts": {
-    "test": "sudo esbuild --serve=443 --servedir=./ --keyfile=.srv/server.key --certfile=.srv/server.crt"
+    "mk_cert": "openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes -keyout .srv/server.key -out .srv/server.crt -subj \"/CN=localhost\" -addext \"subjectAltName=DNS:localhost,DNS:sariputta-l,IP:192.168.1.91\"",
+    "sudo-su": "sudo -s -E",
+    "serve": "esbuild --serve=443 --servedir=./ --keyfile=.srv/server.key --certfile=.srv/server.crt"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/suttaplayer/suttaplayer.git"
+    "url": "git+https://github.com/suttaplayer/suttaplayer.github.io.git"
   },
   "keywords": [
     "sutta",
